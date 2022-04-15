@@ -12,3 +12,5 @@ console.log("Hello " + myName);
 myName = "DongHyeon";
 
 console.log("Your name is " + myName);
+
+// * 연계 ==> Hoisting , 변수 선언 3단계 (선언 초기화 할당)

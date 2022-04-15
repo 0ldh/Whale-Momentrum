@@ -1,16 +1,22 @@
-const a = 5; // ! 상수 ( Constant ) 재할당 불가능
-const b = 2;
-let myName = "LeeDongHyeon"; // ! 재할당 가능
+// Boolean
+// ? True or False
+const amIFat = false;
+console.log(amIFat);
 
-console.log(a + b);
-console.log(a - b);
-console.log(a * b);
-console.log(a / b);
+// null
+// ? 값이 비어있음
+const a = null;
+console.log(a);
 
-console.log("Hello " + myName);
+// undefind 
+// ? 값이 할당되지 않음
+let b;
+console.log(b);
 
-myName = "DongHyeon";
-
-console.log("Your name is " + myName);
-
-// * 연계 ==> Hoisting , 변수 선언 3단계 (선언 초기화 할당)
+// Referance Error
+// ? 변수가 선언되지 않음
+if (true) {
+   const c = 3;
+}
+console.log(c);
+// * 스코프 개념

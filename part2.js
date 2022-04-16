@@ -8,7 +8,7 @@ console.log(amIFat);
 const a = null;
 console.log(a);
 
-// undefind 
+// undefined 
 // ? 값이 할당되지 않음
 let b;
 console.log(b);

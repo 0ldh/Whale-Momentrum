@@ -4,7 +4,7 @@ const amIFat = false;
 console.log(amIFat);
 
 // null
-// ? 값이 비어있음
+// ? 아무것도 아닌 값
 const a = null;
 console.log(a);
 

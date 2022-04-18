@@ -10,3 +10,4 @@ const me = {
 console.log(me);
 console.log(me.firstName);
 console.log(me[0]);
+console.log(me["weight"]);

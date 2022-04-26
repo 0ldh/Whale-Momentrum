@@ -11,7 +11,7 @@ const cal = {
    square : (a,b) => {
       return a**b;
    },
-   division: () => {
+   division: (a,b) => {
       return a / b;
    }
 }
@@ -19,7 +19,7 @@ const cal = {
 let res = [];
 
 
-res.push(cal.plus(6,3),cal.minus(6,3),cal.mul(6,3),cal.square(6,3)),cal.division(6,3)
+res.push(cal.plus(6,3),cal.minus(6,3),cal.mul(6,3),cal.square(6,3),cal.division(6,3));
 
-
+console.log(res)
 

@@ -7,9 +7,13 @@ const  handleTitleClick = () =>{
 }
 
 const handleMouserEnter = () => {
-   console.log("Mouse is here")
+   title.innerText = "Mouse is here!"
 }
 
+const handleMouserLeave = () => {
+   title.innerText = "Mouse is gone!"
+}
 
 title.addEventListener("click", handleTitleClick);
-title.addEventListener("mouseenter",handleMouserEnter)
+title.addEventListener("mouseenter",handleMouserEnter);
+title.addEventListener("mouseleave",handleMouserLeave);

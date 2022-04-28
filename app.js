@@ -1,4 +1,4 @@
-const title = document.querySelector("div h1");
+const title = document.querySelectorAll(".hello h1");
 
 
 console.log(title);

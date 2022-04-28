@@ -1,3 +1,3 @@
-console.log(document.title)
+const title = document.getElementById("title");
 
-document.title = "Hello! Whale!"
+console.log(title)

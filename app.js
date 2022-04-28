@@ -1,4 +1,5 @@
-const title = document.querySelectorAll(".hello h1");
+const title = document.querySelector(".hello h1");
 
+title.innerText = "Hello !!"
 
-console.log(title);
+console.log(title.innerText);

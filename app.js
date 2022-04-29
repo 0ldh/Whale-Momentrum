@@ -2,8 +2,9 @@ const h1 = document.querySelector(".hello h1");
 
 
 const  handleTitleClick = () =>{
-   if(h1.style.color === "blue") h1.style.color = "tomato";
-   else h1.style.color = "blue";
+   const currentColor = h1.style.color;
+   if(currentColor === "blue") currentColor = "tomato";
+   else currentColor = "blue";
    console.log("title was clicked");
 }
 

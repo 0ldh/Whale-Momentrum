@@ -3,3 +3,12 @@ body {
    -webkit-user-select:none; -moz-user-select:none; -ms-user-select:none; user-select:none
 
 }
+
+h1 {
+   color: cornflowerblue;
+   transition: color .5s ease-in-out;
+}
+
+.active {
+   color : tomato;
+}

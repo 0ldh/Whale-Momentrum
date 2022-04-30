@@ -2,8 +2,9 @@ const h1 = document.querySelector(".hello h1");
 
 
 const  handleTitleClick = () =>{
-   if (h1.className === "active") h1.className ="";
-   else h1.className = "active";
+   const clickedClass = "clicked"
+   if (h1.className === "clicked") h1.className ="";
+   else h1.className = "clicked";
 }
 
 

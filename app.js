@@ -7,18 +7,15 @@ const onLoginSubmit = (event) => {
    event.preventDefault();
    const userName = loginInput.value;
 
+   loginForm.classList.toggle("hidden");
+
    console.log(userName);
 }
 
-const handleLinkClick = (event) => {
-   event.preventDefault();
-   console.dir(event);
-   alert("Click!");
-}
+
 
 
 loginForm.addEventListener("submit", onLoginSubmit)
-link.addEventListener("click", handleLinkClick)
 
 
 // preventDefault() =>  기본동작을 막아줌

@@ -38,6 +38,6 @@ if (savedUsername === null) {
    paintGreeting(savedUsername);
 }
 
-// preventDefault() =>  기본동작을 막아줌
-// addEventListener => 이벤트를 매개변수로 함수를 실행한다
+// ? preventDefault() =>  기본동작을 막아줌
+// ? addEventListener => 이벤트를 매개변수로 함수를 실행한다
 

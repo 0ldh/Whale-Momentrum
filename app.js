@@ -9,9 +9,10 @@ const HIDDEN_CLASSNAME = "hidden";
 const USERNAME_KEY = "username";
 
 // ! 함수
-const paintGreeting = (username) => {
+const paintGreeting = () => {
+   const userName = localStorage.getItem(USERNAME_KEY) // todo localsotrage에서 바로 userName에 저장
    greeting.classList.remove(HIDDEN_CLASSNAME); // todo username을 매개변수로 .hidden 제거
-   greeting.innerText = `Hello ${username}`; // todo #greeting에 username text로 입력
+   greeting.innerText = `Hello ${userName}`; // todo #greeting에 username text로 입력
 }
 
 const onLoginSubmit = (event) => {
@@ -21,7 +22,7 @@ const onLoginSubmit = (event) => {
 
    localStorage.setItem(USERNAME_KEY, userName); // todo username locastorage에 저장
    
-   paintGreeting(userName); // todo 입력한 username을 매개변수로 paint greeting 함수 실행
+   paintGreeting(); // todo paint greeting 함수 실행
 
    console.log(userName); //
 }
@@ -35,7 +36,7 @@ if (savedUsername === null) {
    loginForm.addEventListener("submit", onLoginSubmit)
 } else {
    // todo username이 입력되어 있는 경우
-   paintGreeting(savedUsername);
+   paintGreeting();
 }
 
 // ? preventDefault() =>  기본동작을 막아줌

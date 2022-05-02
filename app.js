@@ -1,6 +1,6 @@
+// ! 변수
 const loginForm = document.querySelector("#login-form");
 const loginInput = loginForm.querySelector("#login-form input");
-// ! 변수
 const greeting = document.querySelector("#greeting")
 const link = document.querySelector("a")
 const body = document.querySelector("body");

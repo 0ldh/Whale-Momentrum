@@ -4,6 +4,5 @@ const sayHello = () => {
    console.log("Hello")
 }
 
-setInterval(sayHello, 5000);
 
-console.log(clock);
+setTimeout(sayHello, 5000);

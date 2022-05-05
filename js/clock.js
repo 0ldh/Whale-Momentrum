@@ -8,6 +8,8 @@ const getClock = () => {
    clock.innerText = `${hours}:${minutes}:${seconds}`
    clock.innerHTML = `${seconds}:${minutes}:${hours}`
 
+   clock.style.color = "red"
+
 }
 
 getClock();

@@ -9,7 +9,7 @@ const getClock = () => {
    clock.innerHTML = `${seconds}:${minutes}:${hours}`
 
    clock.style.color = "red";
-   clock.style.fontSize = "10px";
+   clock.style.fontSize = "100px";
 
 }
 

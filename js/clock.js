@@ -11,6 +11,8 @@ const getClock = () => {
    clock.style.color = "red";
    clock.style.fontSize = "100px";
    clock.style.fontWeight = "bold";
+   clock.style.backgroundColor = "orange";
+   clock.style.fontColor = "black";
 
 }
 

@@ -10,6 +10,7 @@ const getClock = () => {
 
    clock.style.color = "red";
    clock.style.fontSize = "100px";
+   clock.style.fontWeight = "bold";
 
 }
 

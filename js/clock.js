@@ -16,5 +16,6 @@ const getClock = () => {
 
 getClock();
 setInterval(getClock, 1000);
+setTimeout(getClock, 0);
 
 // ? padStart(x,y), padEnd(x,y) => String 자료의 길이수를 x로 바꾸고 자리가 비어있을 경우 y로 채운다

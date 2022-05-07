@@ -6,18 +6,10 @@ const getClock = () => {
    const minutes = String(date.getMinutes()).padStart(2, "0");
    const seconds = String(date.getSeconds()).padStart(2, "0");
    clock.innerText = `${hours}:${minutes}:${seconds}`
-   clock.innerHTML = `${seconds}:${minutes}:${hours}`
-
-   clock.style.color = "red";
-   clock.style.fontSize = "100px";
-   clock.style.fontWeight = "bold";
-   clock.style.backgroundColor = "orange";
-   clock.style.fontColor = "black";
-
+   
 }
 
 getClock();
 setInterval(getClock, 1000);
-setTimeout(getClock, 0);
 
 // ? padStart(x,y), padEnd(x,y) => String 자료의 길이수를 x로 바꾸고 자리가 비어있을 경우 y로 채운다

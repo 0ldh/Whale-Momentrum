@@ -5,11 +5,11 @@ const getClock = () => {
    const hours = String(date.getHours()).padStart(2, "0");
    const minutes = String(date.getMinutes()).padStart(2, "0");
    const seconds = String(date.getSeconds()).padStart(2, "0");
-   clock.innerText = `${hours}:${minutes}:${seconds}`
+   clock.innerText = `${hours}:${minutes}:${seconds}`;
    
 }
 
 getClock();
 setInterval(getClock, 1000);
 
-// ? padStart(x,y), padEnd(x,y) => String 자료의 길이수를 x로 바꾸고 자리가 비어있을 경우 y로 채운다
+// ? padStart(x,y), padEnd(x,y) => String 자료형의 길이수를 x로 바꾸고 자리가 비어있을 경우 y로 채운다

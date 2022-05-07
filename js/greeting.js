@@ -30,12 +30,10 @@ const onLoginSubmit = (event) => {
 // ********************************************************
 const savedUsername = localStorage.getItem(USERNAME_KEY); // todo localstorage에 있는 username을 키로 value 값 호출
 
-if (savedUsername === null) {
-   // todo usernmae이 비어있는 경우 
+if (savedUsername === null) { // todo usernmae이 비어있는 경우 
    loginForm.classList.remove(HIDDEN_CLASSNAME);
    loginForm.addEventListener("submit", onLoginSubmit)
-} else {
-   // todo username이 입력되어 있는 경우
+} else { // todo username이 입력되어 있는 경우
    paintGreeting();
 }
 

@@ -37,6 +37,11 @@ if (savedUsername === null) { // todo usernmae이 비어있는 경우
    paintGreeting();
 }
 
+// ? ClassList => 해당 HTML이 가지고 있는 클래스 목록
+/* remove(x) : x라는 이름의 클래스명 제거 
+   add(x) : x라는 이름의 클래스명 추가
+   toggle(x) : x라는 이름의 클래스명이 있을 경우 제거 or 추가 */
+ 
 // ? preventDefault() =>  기본동작을 막아줌
 // ? addEventListener => 이벤트를 매개변수로 함수를 실행한다
 

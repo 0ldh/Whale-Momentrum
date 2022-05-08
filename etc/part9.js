@@ -17,4 +17,4 @@ class person {
 
 //? class => 객체 생성의 틀 (template)
 
-const mike = new person("mike", 26, "man")
+const mike = new person("mike", 26, "man") // todo class로 정의된 객체 생성 방법

@@ -15,4 +15,6 @@ class person {
    sex;
 }
 
+//? class => 객체 생성의 틀 (template)
+
 const mike = new person("mike", 26, "man")

@@ -21,7 +21,6 @@ const dateHours = new Date();
 const img = document.createElement("img");
 img.src = `img/${times()}`;
 console.log(img)
-
 document.body.appendChild(img);
 
 

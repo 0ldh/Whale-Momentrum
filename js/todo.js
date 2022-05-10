@@ -1,4 +1,4 @@
-const todoForm = document.getElementById("todo-form");
+const todoForm = document.getElementById("todo-form"); // todo 할 일 작성폼 선택
 const toDoInput = todoForm.querySelector("input");
 const todoList = document.getElementById("todo-list");
 

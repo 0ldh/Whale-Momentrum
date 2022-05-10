@@ -2,7 +2,7 @@ const todoForm = document.getElementById("todo-form"); // todo 할 일 작성 �
 const toDoInput = todoForm.querySelector("input"); // todo 할 일 입력창 선택
 const todoList = document.getElementById("todo-list"); // todo 할 일 목록 선ㅌ택
 
-// * todo
+// * 할 일 목록에 할 일 추가 함수
 const patinTodo = (newTodo) =>{
    const li = document.createElement("li");
    const span = document.createElement("span");

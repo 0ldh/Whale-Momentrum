@@ -21,6 +21,7 @@ const dateHours = new Date();
    else return images.evening[Math.floor(Math.random() * images.evening.length)];
 }
 
+//* 이미지 그리기
 const img = document.createElement("img");
 img.src = `img/${times()}`;
 console.log(img)

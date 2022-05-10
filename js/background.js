@@ -6,11 +6,14 @@ const images = {
    evening : ["evening1.jpeg", "evening2.jpeg", "evening3.jpeg"]
 };
 
+// * 연,월,시간,분,초
 const dateHours = new Date();
 
 
 // * moring : 06 ~ 12 / noon : 12 ~ 15 / afternoon : 15 ~ 20 / evening : 20 ~ 06
 
+
+// * 시간대별 배경 설정
  const times = () => {
    if (6 <= dateHours.getHours() && dateHours.getHours() < 12) return images.morning[Math.floor(Math.random() * images.morning.length)];
    else if (12<= dateHours.getHours() && dateHours.getHours() < 15 ) return images.noon[Math.floor(Math.random() * images.noon.length)];

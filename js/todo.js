@@ -11,6 +11,7 @@ const patinTodo = (newTodo) =>{
    todoList.appendChild(li);
 } 
 
+// * form 태그 submit 시 새로고침기능 제어
 const handleToDoSubmit = (event) => {
    event.preventDefault();
    const newTodo = toDoInput.value;

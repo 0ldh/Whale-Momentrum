@@ -1,5 +1,5 @@
-const todoForm = document.getElementById("todo-form"); // todo 할 일 작성폼 선택
-const toDoInput = todoForm.querySelector("input");
+const todoForm = document.getElementById("todo-form"); // todo 할 일 작성 폼 선택
+const toDoInput = todoForm.querySelector("input"); // todo 할 일 입력창 선택
 const todoList = document.getElementById("todo-list");
 
 const patinTodo = (newTodo) =>{

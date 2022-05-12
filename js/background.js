@@ -27,8 +27,6 @@ img.src = `img/${times()}`;
 console.log(img)
 document.body.appendChild(img);
 
-/* document.body.appendChild(img);
- */
 
 //? append : 가장 뒤에
 //? prepend : 가장 위에

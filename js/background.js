@@ -27,5 +27,7 @@ img.src = `img/${times()}`;
 console.log(img)
 document.body.appendChild(img);
 
+
+//* ES6 : `` 백틱 () => 화살표 함수 
 //? append : 가장 뒤에
 //? prepend : 가장 위에

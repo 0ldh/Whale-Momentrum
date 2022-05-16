@@ -24,6 +24,7 @@ const dateHours = new Date();
 //* 이미지 그리기
 const img = document.createElement("img");
 img.src = `img/${times()}`;
+img.id = "img"
 console.log(img)
 document.body.appendChild(img);
 

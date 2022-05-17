@@ -7,6 +7,11 @@ html, body {
    height: 100%;
    margin: 0;
 }
+#login-form {
+   z-index: 2;
+}
+
+
 
 #greeting {
    font-size: 75px;
@@ -86,7 +91,7 @@ html, body {
    width: 35%;
    height: 5%;
    z-index: 2;
-   border-radius: 24px;
+   border-radius: 8px;
    border: 1px solid #dfe1e5;
    box-shadow: none;
    margin: 0 auto;
@@ -94,19 +99,27 @@ html, body {
    align-items: center;
    background-color: #dfe1e5;
    margin-top: 10px;
+   opacity: 0.5;
    
 }
 
 .searchbox > a {
-   margin-top: 3px;
+   margin: 5px;
 }
 
+.searchbox > a > img {
+   vertical-align: middle;
+}
 
 .search {
    width: 90%;
    height: 100%;
    background-color: transparent;
+   font-size: 16px;
    border: none;
    outline: none;
 }
 
+.search::placeholder {
+   font-weight: 300;
+}

@@ -58,6 +58,11 @@ html, body {
    font-weight: 600;
 }
 
+#todo-list {
+   color: #fff;
+   z-index: 1;
+}
+
 .bgdiv {
    position: absolute;
    top : 0;

@@ -5,6 +5,7 @@ const images = {
    afternoon : ["afternoon1.jpeg", "afternoon2.jpeg", "afternoon3.jpeg"],
    evening : ["evening1.jpeg", "evening2.jpeg", "evening3.jpeg"]
 };
+const bgdiv = document.querySelector(".bgdiv");
 
 // * 연,월,시간,분,초
 const dateHours = new Date();
@@ -22,11 +23,13 @@ const times = () => {
 }
 
 //* 이미지 그리기
-// const img = document.createElement("img");
-// img.src = `img/${times()}`;
-// document.body.appendChild(img);
+const img = document.createElement("img");
+img.src = `img/${times()}`;
+
+img.className = "bgimg";
+bgdiv.appendChild(img);
 // console.log(img);
-document.body.style.backgroundImage = `url(img/${times()})`
+// document.body.style.backgroundImage = `url(img/${times()})`
 
 
 

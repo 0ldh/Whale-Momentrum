@@ -14,6 +14,7 @@ const paintGreeting = () => {
    greeting.classList.remove(HIDDEN_CLASSNAME); // todo username을 매개변수로 .hidden 제거
    greeting.innerText = `Hello ${userName}`; // todo #greeting에 username text로 입력
    greeting.style.color = "white";
+   greeting.style.zIndex = "2";
 }
 
 const onLoginSubmit = (event) => {

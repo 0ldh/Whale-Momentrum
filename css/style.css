@@ -2,6 +2,12 @@
    display: none;
 }
 
+html, body {
+   width: 100%;
+   height: 100%;
+   margin: 0;
+}
+
 .bgdiv {
    position: absolute;
    top : 0;
@@ -18,4 +24,19 @@
    height: 100%;
    position: absolute;
    object-position: center;
+}
+
+.viewport {
+   display: flex;
+   height: 100%;
+   width: 100%;
+   top: 0;
+   bottom: 0;
+   left: 0;
+   right: 0;
+   opacity: 1;
+   flex-direction: column;
+   align-items: center;
+   align-content: center;
+   justify-content: center;
 }

@@ -14,7 +14,7 @@ const dateHours = new Date();
 
 
 // * 시간대별 배경 설정
- const times = () => {
+const times = () => {
    if (6 <= dateHours.getHours() && dateHours.getHours() < 12) return images.morning[Math.floor(Math.random() * images.morning.length)];
    else if (12<= dateHours.getHours() && dateHours.getHours() < 15 ) return images.noon[Math.floor(Math.random() * images.noon.length)];
    else if ( 15 <= dateHours.getHours() && dateHours.getHours() < 20) return images.afternoon[Math.floor(Math.random() * images.afternoon.length)];
@@ -22,11 +22,12 @@ const dateHours = new Date();
 }
 
 //* 이미지 그리기
-const img = document.createElement("img");
-img.src = `img/${times()}`;
-img.id = "img"
-console.log(img)
-document.body.appendChild(img);
+// const img = document.createElement("img");
+// img.src = `img/${times()}`;
+// document.body.appendChild(img);
+// console.log(img);
+document.body.style.backgroundImage = `url(img/${times()})`
+
 
 
 //* ES6 : `` 백틱 () => 화살표 함수 

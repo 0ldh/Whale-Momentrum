@@ -50,6 +50,9 @@ const todayQuote = quotes[Math.floor(Math.random() *quotes.length)];
 quote.innerText = todayQuote.quote
 author.innerText = todayQuote.author
 
+quote.style.color = "white";
+author.style.color = "white";
+
 //? Math
 /* ㄴ floor : 버림
    ㄴ ceil  : 내림

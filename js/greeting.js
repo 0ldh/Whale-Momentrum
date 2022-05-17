@@ -12,9 +12,7 @@ const USERNAME_KEY = "username";
 const paintGreeting = () => {
    const userName = localStorage.getItem(USERNAME_KEY) // todo localsotrage에서 바로 userName에 저장
    greeting.classList.remove(HIDDEN_CLASSNAME); // todo username을 매개변수로 .hidden 제거
-   greeting.innerText = `Hello ${userName}`; // todo #greeting에 username text로 입력
-   greeting.style.color = "white";
-   greeting.style.zIndex = "2";
+   greeting.innerText = `Hello, ${userName}`; // todo #greeting에 username text로 입력
 }
 
 const onLoginSubmit = (event) => {

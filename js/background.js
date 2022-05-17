@@ -25,9 +25,13 @@ const times = () => {
 //* 이미지 그리기
 const img = document.createElement("img");
 img.src = `img/${times()}`;
-
 img.className = "bgimg";
 bgdiv.appendChild(img);
+console.log(img);
+
+const bgop = document.createElement("div");
+bgop.className = "bgop";
+bgdiv.appendChild(bgop);
 // console.log(img);
 // document.body.style.backgroundImage = `url(img/${times()})`
 

@@ -92,15 +92,16 @@ html, body {
    height: 5%;
    z-index: 2;
    border-radius: 8px;
-   border: 1px solid #dfe1e5;
-   box-shadow: none;
-   margin: 0 auto;
+   box-shadow: 0 4px 30px rgb(0 0 0 / 25%);
    display: flex;
    align-items: center;
-   background-color: #dfe1e5;
    margin-top: 10px;
-   opacity: 0.5;
-   
+   /* opacity: 0.5; */
+
+   background-color: hsla(0,0%,100%,.5);
+   color: #000;
+   transition: background-color .3s,box-shadow .3s;
+   backdrop-filter:blur(8px);
 }
 
 .searchbox > a {
@@ -109,6 +110,7 @@ html, body {
 
 .searchbox > a > img {
    vertical-align: middle;
+   filter: grayscale(1);
 }
 
 .search {
@@ -122,4 +124,13 @@ html, body {
 
 .search::placeholder {
    font-weight: 600;
+   color: white;
+}
+
+.gitbox {
+   position: absolute;
+   top: 10px;
+   right: 10px;
+   z-index: 20;
+   cursor: pointer;
 }

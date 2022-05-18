@@ -1,7 +1,7 @@
 const todoForm = document.getElementById("todo-form"); // todo 할 일 작성 폼 선택
 const toDoInput = todoForm.querySelector("input"); // todo 할 일 입력창 선택
 const todoList = document.getElementById("todo-list"); // todo 할 일 목록 선ㅌ택
-const todos = [];
+let todos = [];
 const todoKey = "todos"
 
 // * 할 일 목록에 할 일 추가 함수
@@ -46,7 +46,6 @@ const savedToDos = localStorage.getItem(todoKey);
 
 if(savedToDos !== null) {
    const parseTodos = JSON.parse(savedToDos);
-   parseTodos.forEach(element => {
-      console.log(element);
-   });
+   todos = parseTodos;
+   parseTodos.forEach(patinTodo);
 }

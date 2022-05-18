@@ -8,6 +8,8 @@ const todoKey = "todos"
 const deleteTodo = (event) => {
    const li = event.target.parentElement;
    li.remove();
+   todos = todos.filter((toDo) => toDo.id !== Number(li.id));
+   saveToDos();
 }
 
 const saveToDos = () => {
@@ -17,8 +19,9 @@ const saveToDos = () => {
 
 const patinTodo = (newTodo) =>{
    const li = document.createElement("li");
+   li.id = newTodo.id;
    const span = document.createElement("span");
-   span.innerText = newTodo;
+   span.innerText = newTodo.text;
    const btn = document.createElement("button");
    btn.innerText = "X";
    btn.addEventListener("click",deleteTodo);
@@ -33,8 +36,12 @@ const handleToDoSubmit = (event) => {
    event.preventDefault();
    const newTodo = toDoInput.value;
    toDoInput.value = "";
-   todos.push(newTodo);
-   patinTodo(newTodo);
+   const objectTodo = {
+      id : Date.now(),
+      text : newTodo
+   }
+   todos.push(objectTodo);
+   patinTodo(objectTodo);
    saveToDos();
 }
 

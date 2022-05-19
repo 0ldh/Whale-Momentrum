@@ -1,5 +1,5 @@
 .hidden {
-   display: none;
+   display: none !important;
 }
 
 html, body {
@@ -8,8 +8,25 @@ html, body {
    margin: 0;
 }
 #login-form {
+   display: flex;
+   flex-direction: column;
+   align-items: center;
    z-index: 2;
 }
+
+#login-form > input {
+   border: none;
+   border-bottom: 5px solid #fff;
+   background: transparent;
+   width: 90%;
+   outline: none;
+
+   text-align: center;
+   font-size: 30px;
+   font-weight: bold;
+   color: #fff;
+}
+
 
 #greeting {
    display: flex;
@@ -152,7 +169,6 @@ html, body {
    width: 50px;
    height: 50px;
    cursor: pointer;
-   transition: right .2s ease-in-out;
    white-space: nowrap;
    color: #fff;
 }

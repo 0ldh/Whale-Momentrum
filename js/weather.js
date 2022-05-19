@@ -11,8 +11,11 @@ const onGeoOk = (getCurrentPosition) => {
    .then((data) => {
       const name = data.name
       const weather = data.weather[0].main
-      const tmep = data.main.temp
-   } );
+      const temp = Math.floor(data.main.temp)
+      console.log(name, weather, temp);
+   });
+   
+   
 }
 
 const onGeoError = () => {

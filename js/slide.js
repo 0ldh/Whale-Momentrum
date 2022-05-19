@@ -1,15 +1,15 @@
-const slideDiv = document.querySelector(".slidebtn");
-const slideBtn1 = slideDiv.querySelector(".page1");
-const slideBtn2 = slideDiv.querySelector(".page2");
+const slidebtnDiv = document.querySelector(".slidebtn");
+const slideBtn1 = slidebtnDiv.querySelector(".page1");
+const slideBtn2 = slidebtnDiv.querySelector(".page2");
 
-const page1 = document.querySelector("#slide_div1");
-const page2 = document.querySelector("#slide_div2");
+const slideDiv = document.querySelector("#slide_div");
 
 const toPage1 = () => {
     // 첫 번째 버튼 누름
     slideBtn1.style.background = "hsla(0,0%,100%,1)"
     slideBtn2.style.background = "hsla(0,0%,100%,0.4)"
-    page1.innerHTML = `
+    slideDiv.id = "slide_div1"
+    slideDiv.innerHTML = `
     <div id="clock"></div>
     <form class="hidden" id="login-form">
         <p class="nameQ">What is your name?</p>
@@ -26,11 +26,13 @@ const toPage2 = () => {
     // 두 번째 버튼 누름
     slideBtn1.style.background = "hsla(0,0%,100%,0.4)"
     slideBtn2.style.background = "hsla(0,0%,100%,1)"
-    page1.innerHTML = `
+    slideDiv.id = "slide_div2"
+    slideDiv.innerHTML = `
     <form id="todo-form">
-    <input type="text" placeholder="할 일을 입력하세요">
+        <input type="text" placeholder="할 일을 입력하세요">
     </form>
     <ul id="todo-list"></ul>
+
     `;
     importTodo();
 

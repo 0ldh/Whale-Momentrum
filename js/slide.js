@@ -22,7 +22,8 @@ const toPage1 = () => {
     page1.innerHTML = `
     <div id="clock"></div>
     <form class="hidden" id="login-form">
-        <input required="" maxlength="15" type="text" placeholder="이름을 입력하세요">
+        <p class="nameQ">What is your name?</p>
+        <input required="" maxlength="15" type="text">
     </form>
     <div id="greeting" class=""></div>
 

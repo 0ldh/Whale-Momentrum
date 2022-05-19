@@ -25,6 +25,15 @@ html, body {
    font-size: 30px;
    font-weight: bold;
    color: #fff;
+   margin-top: 10px;
+}
+
+.nameQ {
+   font-size: 60px;
+   color: #fff;
+   margin: 0 auto;
+   margin-top: -23px;
+   font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
 
 
@@ -78,7 +87,7 @@ html, body {
    font-size: 30px;
    font-weight: 600;
    position: absolute;
-   bottom: 100px;
+   bottom: 0px;
 }
 
 #todo-list {
@@ -170,7 +179,8 @@ html, body {
    height: 50px;
    cursor: pointer;
    white-space: nowrap;
-   color: #fff;
+   background-color: hsla(0,0%,100%,.4);
+   border-radius: 50%;
 }
 
 .slidebtn {

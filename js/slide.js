@@ -4,6 +4,8 @@ const slideBtn2 = slidebtnDiv.querySelector(".page2");
 
 const slideDiv = document.querySelector("#slide_div");
 
+
+
 const toPage1 = () => {
     // 첫 번째 버튼 누름
     slideBtn1.style.background = "hsla(0,0%,100%,1)"
@@ -35,7 +37,6 @@ const toPage2 = () => {
     <form id="todo-form">
         <input type="text" placeholder="할 일을 입력하세요">
     </form>
-
     `;
     importTodo();
 

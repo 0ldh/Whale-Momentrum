@@ -27,7 +27,6 @@ const img = document.createElement("img");
 img.src = `img/${times()}`;
 img.className = "bgimg";
 bgdiv.appendChild(img);
-console.log(img);
 
 const bgop = document.createElement("div");
 bgop.className = "bgop";

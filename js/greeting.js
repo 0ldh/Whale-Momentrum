@@ -4,7 +4,7 @@ const importGreeting = () => {
    const loginForm = document.querySelector("#login-form");
    const loginInput = loginForm.querySelector("#login-form input");
    const greeting = document.querySelector("#greeting")
-      
+
    const HIDDEN_CLASSNAME = "hidden";
    const USERNAME_KEY = "username";
    
@@ -12,7 +12,7 @@ const importGreeting = () => {
    const paintGreeting = () => {
       const userName = localStorage.getItem(USERNAME_KEY) // todo localsotrage에서 바로 userName에 저장
       greeting.classList.remove(HIDDEN_CLASSNAME); // todo username을 매개변수로 .hidden 제거
-      greeting.innerText = `Hello, ${userName}`; // todo #greeting에 username text로 입력
+      greeting.innerText = `Good ${time}, ${userName}`; // todo #greeting에 username text로 입력
    }
    
    const onLoginSubmit = (event) => {

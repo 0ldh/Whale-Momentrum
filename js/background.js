@@ -6,6 +6,7 @@ const images = {
    evening : ["evening1.jpeg", "evening2.jpeg", "evening3.jpeg"]
 };
 const bgdiv = document.querySelector(".bgdiv");
+let time;
 
 // * 연,월,시간,분,초
 const dateHours = new Date();
@@ -16,10 +17,22 @@ const dateHours = new Date();
 
 // * 시간대별 배경 설정
 const times = () => {
-   if (6 <= dateHours.getHours() && dateHours.getHours() < 12) return images.morning[Math.floor(Math.random() * images.morning.length)];
-   else if (12<= dateHours.getHours() && dateHours.getHours() < 15 ) return images.noon[Math.floor(Math.random() * images.noon.length)];
-   else if ( 15 <= dateHours.getHours() && dateHours.getHours() < 20) return images.afternoon[Math.floor(Math.random() * images.afternoon.length)];
-   else return images.evening[Math.floor(Math.random() * images.evening.length)];
+   if (6 <= dateHours.getHours() && dateHours.getHours() < 12) {
+      time = "Morning"; 
+      return images.morning[Math.floor(Math.random() * images.morning.length)]
+   }
+   else if (12<= dateHours.getHours() && dateHours.getHours() < 15 ) {
+      time = "Noon";
+      return images.noon[Math.floor(Math.random() * images.noon.length)]
+   }
+   else if ( 15 <= dateHours.getHours() && dateHours.getHours() < 20) {
+      time = "Afternoon";
+      return images.afternoon[Math.floor(Math.random() * images.afternoon.length)]
+   }
+   else {
+      time = "Evening";
+      return images.evening[Math.floor(Math.random() * images.evening.length)]
+   };
 }
 
 //* 이미지 그리기

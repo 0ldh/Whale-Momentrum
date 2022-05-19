@@ -26,7 +26,6 @@ const toPage1 = () => {
         <input required="" maxlength="15" type="text">
     </form>
     <div id="greeting" class=""></div>
-
     <ul id="todo-list"></ul>
     `;
     importClock();

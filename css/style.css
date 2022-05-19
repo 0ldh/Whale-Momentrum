@@ -6,6 +6,7 @@ html, body {
    width: 100%;
    height: 100%;
    margin: 0;
+   overflow: auto;
 }
 #login-form {
    display: flex;
@@ -97,6 +98,11 @@ html, body {
    z-index: 1;
 }
 
+#todo-list > li > button {
+   position: absolute;
+   right: 5px;
+}
+
 .bgdiv {
    position: absolute;
    top : 0;
@@ -127,7 +133,7 @@ html, body {
 }
 
 .searchbox {
-   width: 35%;
+   width: 50%;
    height: 5%;
    z-index: 2;
    border-radius: 8px;
@@ -165,6 +171,32 @@ html, body {
    color: white;
 }
 
+.weather {
+   position: absolute;
+   top: 10px;
+   left: 10px;
+   z-index: 2;
+   background-color: hsla(0,0%,100%,.4);
+   border-radius: 14px;
+   padding: 5px;
+   display: flex;
+   flex-direction: row;
+   align-items: center;
+   font-weight: bold;
+   font-size: 16px;
+   color: #fff;
+}
+
+.weather > div {
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+}
+
+.weather > svg {
+   margin-left: 5px;
+}
+
 .gitbox {
    position: absolute;
    top: 10px;
@@ -186,6 +218,7 @@ html, body {
 }
 
 .slidebtn {
+   margin: 10px;
    z-index: 2;
 }
 
@@ -201,14 +234,26 @@ html, body {
 }
 
 #slide_div1 {
+   position: relative;
    z-index: 10;
+   overflow: auto;
 }
 
 #slide_div2 {
+   position: relative;
    width: 50%;
    height: 50%;
    border-radius: 14px;
    background-color: #fff;
    box-shadow: 0 2px 12px rgb(0 0 0 / 50%);
+   margin: 10px;
    z-index: 10;
+   overflow: auto;
 }
+
+.todo-title {
+   text-align: center;
+   padding: 3px;
+
+}
+

@@ -19,6 +19,8 @@ const toPage1 = () => {
     `;
     importClock();
     importGreeting();
+
+
 }
 
 
@@ -28,10 +30,11 @@ const toPage2 = () => {
     slideBtn2.style.background = "hsla(0,0%,100%,1)"
     slideDiv.id = "slide_div2"
     slideDiv.innerHTML = `
+    <div class="todo-title">할 일 목록</div>
+    <div class="todo-content"><ul id="todo-list"></ul></div>
     <form id="todo-form">
         <input type="text" placeholder="할 일을 입력하세요">
     </form>
-    <ul id="todo-list"></ul>
 
     `;
     importTodo();

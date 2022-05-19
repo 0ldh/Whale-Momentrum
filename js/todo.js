@@ -21,12 +21,27 @@ const importTodo = () => {
    const patinTodo = (newTodo) =>{
       const li = document.createElement("li");
       li.id = newTodo.id;
+
       const span = document.createElement("span");
       span.innerText = newTodo.text;
+
       const btn = document.createElement("button");
       btn.innerText = "X";
+
+      const checkbox = document.createElement("input")
+      checkbox.type = "checkbox"
+      checkbox.className = newTodo.id
+
       btn.addEventListener("click",deleteTodo);
-   
+      checkbox.addEventListener("click", ()=> {
+         console.log(checkbox.checked)
+         // 체크박스 클래스 네임 받아서 클래스 네임으로 된 아이디 li > span 에 밑줄
+         
+      })
+
+      
+
+      li.appendChild(checkbox);
       li.appendChild(span);
       li.appendChild(btn);
       todoList.appendChild(li);
@@ -46,8 +61,6 @@ const importTodo = () => {
       saveToDos();
    }
    
-   
-   
    todoForm.addEventListener("submit", handleToDoSubmit)
    
    const savedToDos = localStorage.getItem(todoKey);
@@ -57,4 +70,6 @@ const importTodo = () => {
       todos = parseTodos;
       parseTodos.forEach(patinTodo);
    }
+
+
 }

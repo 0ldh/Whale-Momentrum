@@ -17,7 +17,6 @@ const importTodo = () => {
       localStorage.setItem("todos",JSON.stringify(todos));
    };
    
-   
    const patinTodo = (newTodo) =>{
       const li = document.createElement("li");
       li.id = newTodo.id;
@@ -34,18 +33,16 @@ const importTodo = () => {
 
       btn.addEventListener("click",deleteTodo);
       checkbox.addEventListener("click", ()=> {
-         console.log(checkbox.checked)
+         const span = li.childNodes[1]
          // 체크박스 클래스 네임 받아서 클래스 네임으로 된 아이디 li > span 에 밑줄
-         
+         if(checkbox.checked) span.style.textDecoration = "line-through";
+         else span.style.textDecoration = "";
       })
-
-      
-
       li.appendChild(checkbox);
       li.appendChild(span);
       li.appendChild(btn);
       todoList.appendChild(li);
-   } 
+   }
    
    // * form 태그 submit 시 새로고침기능 제어
    const handleToDoSubmit = (event) => {
@@ -61,8 +58,13 @@ const importTodo = () => {
       saveToDos();
    }
    
-   todoForm.addEventListener("submit", handleToDoSubmit)
+   todoForm.addEventListener("submit", handleToDoSubmit);
    
+   toDoInput.addEventListener("focus", () => {
+      console.log("input")
+      todoForm.boxShadow = "inset 0 0 0 1.5px #2196f3, 0 -10px 10px #fff;"
+  });
+
    const savedToDos = localStorage.getItem(todoKey);
    
    if(savedToDos !== null) {
@@ -70,6 +72,4 @@ const importTodo = () => {
       todos = parseTodos;
       parseTodos.forEach(patinTodo);
    }
-
-
 }

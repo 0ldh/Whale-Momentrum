@@ -13,6 +13,23 @@ const importTodo = () => {
       todos = todos.filter((toDo) => toDo.id !== Number(li.id));
       saveToDos();
    }
+
+   const updateTodo = (event) => {
+      const li = event.target.parentElement;
+
+      for (let i = 0; i < todos.length; i++){
+         if(li.id == todos[i].id){
+            if(todos[i].bool == true){
+               todos[i].bool = false
+            } else {
+               todos[i].bool = true
+            }
+         } 
+      }
+      console.log(todos);
+      saveToDos();
+      // 얘가 local storage에 있는 얘 object 형태
+   }
    
    const saveToDos = () => {
       localStorage.setItem("todos",JSON.stringify(todos));
@@ -30,10 +47,11 @@ const importTodo = () => {
 
       const checkbox = document.createElement("input")
       checkbox.type = "checkbox"
-      
-
-      btn.addEventListener("click",deleteTodo);
-      checkbox.addEventListener("click", ()=> {
+      checkbox.checked = newTodo.bool;
+      if(checkbox.checked){
+         span.style.textDecoration = "line-through";
+      } 
+      const 밑줄긋기 = ()=> {
          const span = li.childNodes[1]
          if(checkbox.checked) {
          span.style.textDecoration = "line-through";
@@ -41,12 +59,18 @@ const importTodo = () => {
          else { 
          span.style.textDecoration = "";
          }
-      })
+         ;
+      }
+
       li.appendChild(checkbox);
       li.appendChild(span);
       li.appendChild(btn);
       todoList.appendChild(li);
    
+      btn.addEventListener("click",deleteTodo);
+      checkbox.addEventListener("click", updateTodo)
+      checkbox.addEventListener("click", 밑줄긋기)
+      
    }
    
    // * form 태그 submit 시 새로고침기능 제어
@@ -56,7 +80,8 @@ const importTodo = () => {
       toDoInput.value = "";
       const objectTodo = {
          id : Date.now(),
-         text : newTodo
+         text : newTodo,
+         bool : false
       }
       todos.push(objectTodo);
       patinTodo(objectTodo);

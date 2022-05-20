@@ -13,5 +13,5 @@
 - todo 글자 수 제한
 - li 태그 input 태그로 변경
 
+- 코드 정리
 ## methodology
-paintTodo local에 check 확인법이 필요함. 남아있어야 함

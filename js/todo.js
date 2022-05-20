@@ -27,7 +27,6 @@ const importTodo = () => {
 
       const btn = document.createElement("a");
       btn.innerText = "❌";
-      btn.style.cursor = "pointer"
 
       const checkbox = document.createElement("input")
       checkbox.type = "checkbox"
@@ -58,13 +57,6 @@ const importTodo = () => {
       patinTodo(objectTodo);
       saveToDos();
    }
-   
-   todoForm.addEventListener("submit", handleToDoSubmit);
-   
-   toDoInput.addEventListener("focus", () => {
-      console.log("input")
-      todoForm.boxShadow = "inset 0 0 0 1.5px #2196f3, 0 -10px 10px #fff;"
-  });
 
    const savedToDos = localStorage.getItem(todoKey);
    
@@ -73,4 +65,7 @@ const importTodo = () => {
       todos = parseTodos;
       parseTodos.forEach(patinTodo);
    }
+
+   todoForm.addEventListener("submit", handleToDoSubmit);
+   
 }

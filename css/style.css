@@ -331,3 +331,7 @@ html, body {
    max-height: 70%;
 }
 
+#todo-list > li > a {
+   cursor: pointer;
+}
+

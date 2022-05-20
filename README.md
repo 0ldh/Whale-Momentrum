@@ -7,11 +7,10 @@
 
 ## Todo
 - 줄 그어져 있을 시 할 일 목록 카운트 - 1
-- paintTodo 함수 매개변수 2, 체크박스 클릭 시 localstorage 에 id, true paint에서 그릴 때 true 가져옴
-
 - todo list X버튼 display none , hover block
-- todo 글자 수 제한
 - li 태그 input 태그로 변경
+- 슬라이드 효과
 
 - 코드 정리
+
 ## methodology

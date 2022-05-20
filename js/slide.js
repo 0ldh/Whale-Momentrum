@@ -7,13 +7,15 @@ const slideDiv = document.querySelector("#slide_div");
 const subBtn = viewportSub.querySelector(".btn");
 
 const todosCountUpdate = () => {
-    const todosCount = JSON.parse(localStorage.getItem("todos")).length;
-
+    
     subBtn.className = "btn-todo"
     subBtn.innerHTML = `<span>할 일 목록</span>`
-    if(todosCount!==0) {
-        subBtn.innerHTML+=`<span>${todosCount}</span>
-    `
+    
+    if(JSON.parse(localStorage.getItem("todos")) !== null){
+        const todosCount = JSON.parse(localStorage.getItem("todos")).length;
+        if(todosCount!==0) {
+            subBtn.innerHTML+=`<span>${todosCount}</span>`
+        }
     }
 }
 

@@ -63,7 +63,7 @@ const toPage2 = () => {
     <div class="todo-title">할 일 목록</div>
     <div class="todo-content"><ul id="todo-list"></ul></div>
     <form id="todo-form">
-        <input type="text" placeholder="할 일을 입력하세요">
+        <input type="text" maxlength="25" placeholder="할 일을 입력하세요">
     </form>
     `;
     importTodo();

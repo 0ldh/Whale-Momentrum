@@ -318,7 +318,6 @@ html, body {
    font-size: 14px;
    font-weight: 400;
    text-align: center;
-   padding-block-end: 7px;
 }
 
 .todo-content {
@@ -332,6 +331,7 @@ html, body {
 }
 
 #todo-list > li > a {
+   background-color: #fff;
    cursor: pointer;
 }
 

@@ -125,7 +125,7 @@ html, body {
    align-items: center;
 }
 
-#todo-list > li > button {
+#todo-list > li > a {
    position: absolute;
    right: 5px;
 }
@@ -207,9 +207,9 @@ html, body {
    color: white;
 }
 
-.weather {
+.viewport-sub {
    position: absolute;
-   top: 10px;
+   top: 0px;
    left: 10px;
    z-index: 2;
    background-color: transparent;
@@ -221,15 +221,34 @@ html, body {
    font-weight: bold;
    font-size: 16px;
    color: #fff;
+   font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
 }
 
-.weather > div {
+.viewport-sub > .weather {
    display: flex;
    flex-direction: column;
    align-items: center;
 }
 
-.weather > svg {
+.viewport-sub > div {
+   background-color: transparent;
+   border-radius: 14px;
+   padding: 5px;
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   font-weight: bold;
+   font-size: 16px;
+   color: #fff;
+   margin: 5px;
+   cursor: pointer;
+}
+
+.viewport-sub > div:hover {
+   background-color: hsla(0,0%,100%,.4);
+}
+
+.viewport-sub > svg {
    margin-left: 5px;
 }
 
@@ -254,6 +273,7 @@ html, body {
 }
 
 .slidebtn {
+   position: relative;
    margin: 10px;
    z-index: 2;
 }
@@ -273,6 +293,8 @@ html, body {
    position: relative;
    z-index: 10;
    overflow: auto;
+   transition: all 1s;
+   background-color: transparent;
 }
 
 #slide_div2 {
@@ -289,6 +311,7 @@ html, body {
    display: flex;
    flex-direction: column;
    justify-content: space-around;
+   transition: all 1s;
 }
 
 .todo-title {

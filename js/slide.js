@@ -4,7 +4,36 @@ const slideBtn2 = slidebtnDiv.querySelector(".page2");
 
 const slideDiv = document.querySelector("#slide_div");
 
+const subBtn = viewportSub.querySelector(".btn");
 
+const todosCountUpdate = () => {
+    const todosCount = JSON.parse(localStorage.getItem("todos")).length;
+
+    subBtn.className = "btn-todo"
+    subBtn.innerHTML = `<span>할 일 목록</span>`
+    if(todosCount!==0) {
+        subBtn.innerHTML+=`<span>${todosCount}</span>
+    `
+    }
+}
+
+const page2Clock = () => {
+    subBtn.innerHTML = ""
+    subBtn.className = "btn-clock"
+    // ! clock
+    const getSubClock = () => {
+        const subClock = document.querySelector(".btn-clock");
+        // ? padStart(x,y), padEnd(x,y) => String 자료형의 길이수를 x로 바꾸고 자리가 비어있을 경우 y로 채운다
+        const date = new Date();
+        const hours = String(date.getHours()).padStart(2, "0");
+        const minutes = String(date.getMinutes()).padStart(2, "0");
+        const seconds = String(date.getSeconds()).padStart(2, "0");
+        if (subClock){
+            subClock.innerText = `${hours} : ${minutes} :${seconds}`;
+        }
+    }
+    getSubClock();
+   setInterval(getSubClock, 1000);}
 
 const toPage1 = () => {
     // 첫 번째 버튼 누름
@@ -21,8 +50,7 @@ const toPage1 = () => {
     `;
     importClock();
     importGreeting();
-
-
+    todosCountUpdate();
 }
 
 
@@ -39,7 +67,7 @@ const toPage2 = () => {
     </form>
     `;
     importTodo();
-
+    page2Clock();
 
 
 }

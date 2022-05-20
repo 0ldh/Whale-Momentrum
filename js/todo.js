@@ -4,6 +4,7 @@ const importTodo = () => {
    const todoList = document.getElementById("todo-list"); // todo 할 일 목록 선ㅌ택
    let todos = [];
    const todoKey = "todos"
+
    
    // * 할 일 목록에 할 일 추가 함수
    const deleteTodo = (event) => {
@@ -24,8 +25,9 @@ const importTodo = () => {
       const span = document.createElement("span");
       span.innerText = newTodo.text;
 
-      const btn = document.createElement("button");
-      btn.innerText = "X";
+      const btn = document.createElement("a");
+      btn.innerText = "❌";
+      btn.style.cursor = "pointer"
 
       const checkbox = document.createElement("input")
       checkbox.type = "checkbox"
@@ -34,7 +36,6 @@ const importTodo = () => {
       btn.addEventListener("click",deleteTodo);
       checkbox.addEventListener("click", ()=> {
          const span = li.childNodes[1]
-         // 체크박스 클래스 네임 받아서 클래스 네임으로 된 아이디 li > span 에 밑줄
          if(checkbox.checked) span.style.textDecoration = "line-through";
          else span.style.textDecoration = "";
       })

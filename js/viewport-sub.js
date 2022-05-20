@@ -1,8 +1,8 @@
 const API_KEY = "cb91bf2e9f480fdb20114b3a09adb6db"
 
-const docWeather = document.querySelector(".weather");
-const docLocat = docWeather.querySelector("span:first-child");
-const docTemp = docWeather.querySelector("span:last-child")
+const viewportSub = document.querySelector(".viewport-sub");
+const docLocat = viewportSub.querySelector("span:first-child");
+const docTemp = viewportSub.querySelector("span:nth-child(2)")
 
 const onGeoOk = (getCurrentPosition) => {
    const lat = getCurrentPosition.coords.latitude;
@@ -22,8 +22,15 @@ const onGeoOk = (getCurrentPosition) => {
       console.log(name, temp)
    });
 
-
 }
+
+const weather = viewportSub.querySelector(".weather");
+
+weather.addEventListener("click", ()=> {
+   location.href = "https://google.com/search?q=날씨"
+})
+
+
 
 const onGeoError = () => {
    alert("지억을 찾을 수 없습니다")

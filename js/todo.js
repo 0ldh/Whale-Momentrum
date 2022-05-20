@@ -30,18 +30,23 @@ const importTodo = () => {
 
       const checkbox = document.createElement("input")
       checkbox.type = "checkbox"
-      checkbox.className = newTodo.id
+      
 
       btn.addEventListener("click",deleteTodo);
       checkbox.addEventListener("click", ()=> {
          const span = li.childNodes[1]
-         if(checkbox.checked) span.style.textDecoration = "line-through";
-         else span.style.textDecoration = "";
+         if(checkbox.checked) {
+         span.style.textDecoration = "line-through";
+         }
+         else { 
+         span.style.textDecoration = "";
+         }
       })
       li.appendChild(checkbox);
       li.appendChild(span);
       li.appendChild(btn);
       todoList.appendChild(li);
+   
    }
    
    // * form 태그 submit 시 새로고침기능 제어

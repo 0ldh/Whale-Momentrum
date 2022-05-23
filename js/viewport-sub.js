@@ -5,35 +5,36 @@ const docLocat = viewportSub.querySelector("span:first-child");
 const docTemp = viewportSub.querySelector("span:nth-child(2)")
 
 const onGeoOk = (getCurrentPosition) => {
-   const lat = getCurrentPosition.coords.latitude;
-   const lnt = getCurrentPosition.coords.longitude;
-   const url = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lnt}&appid=${API_KEY}&units=metric`
+    const lat = getCurrentPosition.coords.latitude;
+    const lnt = getCurrentPosition.coords.longitude;
+    const url = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lnt}&appid=${API_KEY}&units=metric`
 
-   fetch(url)
-   .then((response) => response.json())
-   .then((data) => {
-      const name = data.name
-      const weather = data.weather[0].main
-      const temp = Math.floor(data.main.temp)
-      
+    fetch(url)
+        .then((response) => response.json())
+        .then((data) => {
+            const name = data.name
+            const weather = data
+                .weather[0]
+                .main
+            const temp = Math.floor(data.main.temp)
 
-      docLocat.innerText = name;
-      docTemp.innerText = `${temp}'C`;
-      console.log(name, temp)
-   });
+            docLocat.innerText = name;
+            docTemp.innerText = `${temp}'C`;
+            console.log(name, temp)
+        });
 
 }
 
 const weather = viewportSub.querySelector(".weather");
 
-weather.addEventListener("click", ()=> {
-   location.href = "https://google.com/search?q=날씨"
+weather.addEventListener("click", () => {
+    location.href = "https://google.com/search?q=날씨"
 })
 
-
-
 const onGeoError = () => {
-   alert("지억을 찾을 수 없습니다")
+    alert("지억을 찾을 수 없습니다")
 }
 
-navigator.geolocation.getCurrentPosition(onGeoOk, onGeoError)
+navigator
+    .geolocation
+    .getCurrentPosition(onGeoOk, onGeoError)

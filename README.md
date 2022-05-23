@@ -10,8 +10,10 @@
 - todo list X버튼 display none , hover block
 - li 태그 input 태그로 변경
 - 슬라이드 효과
-- CSS to SCSS
+- 날씨 API 날씨별 아이콘 바꾸기 
 
+- CSS to SCSS
 - 코드 정리
 
 ## methodology
+=>

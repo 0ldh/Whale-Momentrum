@@ -1,9 +1,15 @@
 // ! backGoround img
 const images = {
-   morning : ["morning1.jpeg", "morning2.jpg", "morning3.jpeg"],
-   noon : ["noon1.jpeg", "noon2.jpeg", "noon3.jpeg"],
-   afternoon : ["afternoon1.jpeg", "afternoon2.jpeg", "afternoon3.jpeg"],
-   evening : ["evening1.jpeg", "evening2.jpeg", "evening3.jpeg"]
+    morning: [
+        "morning1.jpeg", "morning2.jpg", "morning3.jpeg"
+    ],
+    noon: [
+        "noon1.jpeg", "noon2.jpeg", "noon3.jpeg"
+    ],
+    afternoon: [
+        "afternoon1.jpeg", "afternoon2.jpeg", "afternoon3.jpeg"
+    ],
+    evening: ["evening1.jpeg", "evening2.jpeg", "evening3.jpeg"]
 };
 const bgdiv = document.querySelector(".bgdiv");
 let time;
@@ -11,28 +17,23 @@ let time;
 // * 연,월,시간,분,초
 const dateHours = new Date();
 
-
 // * moring : 06 ~ 12 / noon : 12 ~ 15 / afternoon : 15 ~ 20 / evening : 20 ~ 06
-
 
 // * 시간대별 배경 설정
 const times = () => {
-   if (6 <= dateHours.getHours() && dateHours.getHours() < 12) {
-      time = "Morning"; 
-      return images.morning[Math.floor(Math.random() * images.morning.length)]
-   }
-   else if (12<= dateHours.getHours() && dateHours.getHours() < 15 ) {
-      time = "Noon";
-      return images.noon[Math.floor(Math.random() * images.noon.length)]
-   }
-   else if ( 15 <= dateHours.getHours() && dateHours.getHours() < 20) {
-      time = "Afternoon";
-      return images.afternoon[Math.floor(Math.random() * images.afternoon.length)]
-   }
-   else {
-      time = "Evening";
-      return images.evening[Math.floor(Math.random() * images.evening.length)]
-   };
+    if (6 <= dateHours.getHours() && dateHours.getHours() < 12) {
+        time = "Morning";
+        return images.morning[Math.floor(Math.random() * images.morning.length)]
+    } else if (12 <= dateHours.getHours() && dateHours.getHours() < 15) {
+        time = "Noon";
+        return images.noon[Math.floor(Math.random() * images.noon.length)]
+    } else if (15 <= dateHours.getHours() && dateHours.getHours() < 20) {
+        time = "Afternoon";
+        return images.afternoon[Math.floor(Math.random() * images.afternoon.length)]
+    } else {
+        time = "Evening";
+        return images.evening[Math.floor(Math.random() * images.evening.length)]
+    };
 }
 
 //* 이미지 그리기
@@ -44,11 +45,6 @@ bgdiv.appendChild(img);
 const bgop = document.createElement("div");
 bgop.className = "bgop";
 bgdiv.appendChild(bgop);
-// console.log(img);
-// document.body.style.backgroundImage = `url(img/${times()})`
+// console.log(img); document.body.style.backgroundImage = `url(img/${times()})`
 
-
-
-//* ES6 : `` 백틱 () => 화살표 함수 
-//? append : 가장 뒤에
-//? prepend : 가장 위에
+//* ES6 : `` 백틱 () => 화살표 함수 ? append : 가장 뒤에 ? prepend : 가장 위에

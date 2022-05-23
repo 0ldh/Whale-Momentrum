@@ -7,14 +7,16 @@ const slideDiv = document.querySelector("#slide_div");
 const subBtn = viewportSub.querySelector(".btn");
 
 const todosCountUpdate = () => {
-    
+
     subBtn.className = "btn-todo"
     subBtn.innerHTML = `<span>할 일 목록</span>`
-    
-    if(JSON.parse(localStorage.getItem("todos")) !== null){
-        const todosCount = JSON.parse(localStorage.getItem("todos")).length;
-        if(todosCount!==0) {
-            subBtn.innerHTML+=`<span>${todosCount}</span>`
+
+    if (JSON.parse(localStorage.getItem("todos")) !== null) {
+        const todosCount = JSON
+            .parse(localStorage.getItem("todos"))
+            .length;
+        if (todosCount !== 0) {
+            subBtn.innerHTML += `<span>${todosCount}</span>`
         }
     }
 }
@@ -30,12 +32,13 @@ const page2Clock = () => {
         const hours = String(date.getHours()).padStart(2, "0");
         const minutes = String(date.getMinutes()).padStart(2, "0");
         const seconds = String(date.getSeconds()).padStart(2, "0");
-        if (subClock){
+        if (subClock) {
             subClock.innerText = `${hours} : ${minutes} :${seconds}`;
         }
     }
     getSubClock();
-   setInterval(getSubClock, 1000);}
+    setInterval(getSubClock, 1000);
+}
 
 const toPage1 = () => {
     // 첫 번째 버튼 누름
@@ -55,7 +58,6 @@ const toPage1 = () => {
     todosCountUpdate();
 }
 
-
 const toPage2 = () => {
     // 두 번째 버튼 누름
     slideBtn1.style.background = "hsla(0,0%,100%,0.4)"
@@ -71,11 +73,7 @@ const toPage2 = () => {
     importTodo();
     page2Clock();
 
-
 }
-
-
-
 
 window.addEventListener("load", toPage1);
 slideBtn2.addEventListener("click", toPage2);

@@ -50,7 +50,7 @@ const importTodo = () => {
         if (checkbox.checked) {
             span.style.textDecoration = "line-through";
         }
-        const 밑줄긋기 = () => {
+        const toDoUnderLine = () => {
             const span = li.childNodes[1]
             if (checkbox.checked) {
                 span.style.textDecoration = "line-through";
@@ -58,7 +58,6 @@ const importTodo = () => {
                 span.style.textDecoration = "";
             };
         }
-        D
         li.appendChild(checkbox);
         li.appendChild(span);
         li.appendChild(btn);
@@ -66,7 +65,7 @@ const importTodo = () => {
 
         btn.addEventListener("click", deleteTodo);
         checkbox.addEventListener("click", updateTodo)
-        checkbox.addEventListener("click", 밑줄긋기)
+        checkbox.addEventListener("click", toDoUnderLine)
 
     }
 

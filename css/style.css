@@ -335,3 +335,75 @@ html, body {
    cursor: pointer;
 }
 
+@media screen and (max-width:650px) {
+   .searchbox {
+      display: none !important;
+   }
+   #slide_div2 {
+      display: none;
+   }
+}
+
+@media screen and (max-width:605px){
+   #clock {
+      font-size: 75px;
+   }
+   .nameQ {
+      font-size: 30px;
+      margin-top: 10px;
+   }
+}
+
+@media screen and (max-width:800px) {
+   #quote {
+      display: none;
+   }
+}
+
+@media screen and (max-height:490px){
+   .searchbox {
+      display: none !important;
+   }
+
+}
+
+@media screen and (max-height:460px) {
+   #quote  {
+      display: none;
+   }
+}
+
+
+@media screen and (max-height:340px) {
+   .viewport-sub {
+      display: none;
+   }
+   #login-form {
+      display: none;
+   }
+   .gitbox {
+      display: none;
+   }
+   .slidebtn {
+      display: none;
+   }
+}
+
+@media screen and (max-height:310px) {
+   #slide_div2 {
+      display: none;
+   }
+}
+
+
+@media screen and (max-height:237px) {
+   #clock {
+      font-size: 70px;
+   }
+}
+
+@media screen and (max-height:96px) {
+   #clock{
+      display: none;
+   }
+}

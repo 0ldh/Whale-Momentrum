@@ -7,17 +7,19 @@ const slideDiv = document.querySelector("#slide_div");
 const subBtn = viewportSub.querySelector(".btn");
 
 const todosCountUpdate = () => {
+    const savedToDos = JSON.parse(localStorage.getItem("todos"));
+    let todosCount = 0;
 
     subBtn.className = "btn-todo"
     subBtn.innerHTML = `<span>할 일 목록</span>`
 
-    if (JSON.parse(localStorage.getItem("todos")) !== null) {
-        const todosCount = JSON
-            .parse(localStorage.getItem("todos"))
-            .length;
-        if (todosCount !== 0) {
-            subBtn.innerHTML += `<span>${todosCount}</span>`
-        }
+    if (savedToDos !== null) {
+        savedToDos.forEach(e => {
+            if(e.bool === false) {
+                todosCount +=1;
+            }
+        });
+        subBtn.innerHTML += `<span>${todosCount}</span>`
     }
 }
 
@@ -74,8 +76,11 @@ const toPage2 = () => {
     page2Clock();
 
 }
-
 window.addEventListener("load", toPage1);
 slideBtn2.addEventListener("click", toPage2);
 slideBtn1.addEventListener("click", toPage1);
 console.dir(slideBtn1);
+
+if (window.matchMedia('(max-width:800px').matches) {
+    console.log("줄어듦")
+}

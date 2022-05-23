@@ -32,7 +32,7 @@ weather.addEventListener("click", () => {
 })
 
 const onGeoError = () => {
-    alert("지억을 찾을 수 없습니다")
+    alert("지역을 찾을 수 없습니다")
 }
 
 navigator

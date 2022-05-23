@@ -14,12 +14,14 @@
 - CSS to SCSS
 - todo list X버튼 display none , hover block
 - todolist 삭제시 밀리면서 아래에서 한 칸 위로 당겨지는 효과
+- todoList 전체선택, 선택삭제 버튼
 
 ### JS
 - li 태그 input 태그로 변경
 - 날씨 API 날씨별 아이콘 바꾸기 
 - class 객체화 후 js 파일 묶기 (가능하면)
 - viewport-sub 클릭시 to page1, to page2
+- todoList 전체선택, 선택삭제 상호작용
 
 ### ALL
 - 코드 정리

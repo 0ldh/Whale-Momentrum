@@ -74,9 +74,6 @@ html {
     z-index: 1;
 }
 
-.viewport > #slide_div1 {
-
-}
 
 #todo-form {
     display: flex;
@@ -92,8 +89,8 @@ html {
 }
 
 #todo-form > input {
-    width: 100%;
-    height: 100%;
+    width: 23rem;
+    height: 4rem;
     background: transparent;
     border: 0;
     padding-inline-start: 10px;
@@ -184,6 +181,7 @@ html {
     background-color: hsla(0,0%,100%,.5);
     color: #000;
     transition: background-color 0.3s,box-shadow 0.3s;
+    transition: position, 0.3s;
     backdrop-filter:blur(8px);
 }
 
@@ -293,8 +291,6 @@ html {
 }
 
 #slide_div1 {
-   animation-name: slide;
-   animation-duration: 1s;
     position: relative;
     z-index: 10;
     overflow: hidden;
@@ -303,19 +299,18 @@ html {
 
 #slide_div2 {
     position: relative;
-    width: 30%;
-    height: 50%;
+    width: 25rem;
+    height: 30rem;
     border-radius: 14px;
     background-color: #fff;
     box-shadow: 0 2px 12px rgb(0 0 0 / 50%);
-    margin: 10px;
+    margin-top: 10px;
     z-index: 10;
     overflow: hidden;
     font-family: sans-serif;
     display: flex;
     flex-direction: column;
     justify-content: space-around;
-    transition: all 1s;
 }
 
 .todo-title {
@@ -375,7 +370,7 @@ html {
 
 }
 
-@media screen and (max-height:460px) {
+@media screen and (max-height:695px) {
     #quote {
         display: none;
     }
@@ -407,15 +402,77 @@ html {
         font-size: 70px;
     }
 }
-@keyframes slide {
-    from {
-        margin-left: 100%;
-        width: 300%;
-    }
 
-    to {
-        margin-left: 0;
-        width: 100%;
-    }
+.slidein1 {
+   animation-name: slidein1;
+   animation-duration: 1s;
 }
 
+.slidein2 {
+   animation-name: slidein2;
+   animation-duration: 1s;
+}
+
+@keyframes slidein1 {
+   from {
+       margin-right: 100%;
+       opacity: 0;
+       size: 30%;
+   }
+
+   to {
+       margin-right: 0;
+       opacity: 1;
+       
+   }
+}
+
+@keyframes slidein2 {
+  from {
+      margin-left: 100%;
+      height: 33%;
+      opacity: 0;
+  }
+
+  to {
+      opacity: 1;
+      margin-left: 0;
+      height: 30rem;
+  }
+}
+
+.slideout1 {
+   animation-name: slideout1;
+   animation-duration: 1s;
+}
+
+.slideout2 {
+   animation-name: slideout2;
+   animation-duration: 1s;
+}
+
+@keyframes slideout1 {
+   from {
+       margin-right: 0;
+       opacity: 1;
+   }
+
+   to {
+      opacity: 0;
+       margin-right: 145%;
+   }
+}
+
+@keyframes slideout2 {
+  from {
+      margin-left: 0%;
+      height: 30rem;
+      opacity: 1;
+  }
+
+  to {
+      margin-left: 145%;
+      height: 33%;
+      opacity: 0;
+  }
+}

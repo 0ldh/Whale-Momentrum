@@ -6,6 +6,8 @@ const slideDiv = document.querySelector("#slide_div");
 
 const subBtn = viewportSub.querySelector(".btn");
 
+let selectBool = false;
+
 const loadPage = () => {
     slideBtn1.disabled = "true";
     slideBtn1.style.background = "hsla(0,0%,100%,1)"

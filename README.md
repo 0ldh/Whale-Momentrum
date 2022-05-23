@@ -22,8 +22,7 @@
 - 날씨 API 날씨별 아이콘 바꾸기 
 - class 객체화 후 js 파일 묶기 (가능하면)
 - viewport-sub 클릭시 to page1, to page2
-- todoList 전체선택, 선택삭제 상호작용 ＃ 전체선택까지 완료
-   ㄴ 전부 className = ""로 변경, checked = false 로 변경
+- todoList 전체선택, 선택삭제 상호작용 # 페이지 1 다녀오면 체크가 안 풀려져있음
 - todoInput value = ""일 경우 흔들림 애니메이션, 안내
 
 ### ALL

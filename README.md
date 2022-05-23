@@ -10,9 +10,10 @@
 ### HTML/CSS
 - 줄 그어져 있을 시 할 일 목록 카운트 - 1  => 해결
 - 미디어쿼리 => 일단 완료
-- 슬라이드 효과 
+- 슬라이드 효과 => 일단 완료
 - CSS to SCSS
 - todo list X버튼 display none , hover block
+- todo List 스크롤바 CSS
 - todolist 삭제시 밀리면서 아래에서 한 칸 위로 당겨지는 효과
 - todoList 전체선택, 선택삭제 버튼
 

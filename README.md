@@ -9,12 +9,13 @@
 ### HTML/CSS
 - 줄 그어져 있을 시 할 일 목록 카운트 - 1  => 해결
 - 미디어쿼리 => 일단 완료
-- li 태그 input 태그로 변경
+
 - 슬라이드 효과
 - CSS to SCSS
 - todo list X버튼 display none , hover block
 
 ### JS
+- li 태그 input 태그로 변경
 - 날씨 API 날씨별 아이콘 바꾸기 
 - class 객체화 후 js 파일 묶기 (가능하면)
 - viewport-sub 클릭시 to page1, to page2

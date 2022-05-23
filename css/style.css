@@ -117,6 +117,7 @@ html {
     padding-left: 20px;
     z-index: 1;
     font-size: 13px;
+    overflow: hidden;
 }
 
 #todo-list > li {
@@ -125,10 +126,12 @@ html {
     align-items: center;
 }
 
-#todo-list > li > a {
-    position: absolute;
-    right: 5px;
+#todo-list > li:hover {
+   background-color: hsl(0, 0%, 90%);
 }
+
+
+
 
 #todo-list > li > input {
     margin-right: 10px;
@@ -330,8 +333,17 @@ html {
 }
 
 #todo-list > li > a {
-    background-color: #fff;
-    cursor: pointer;
+
+   position: absolute;
+   right: 5px;
+   cursor: pointer;
+}
+
+#todo-list > li > a:hover {
+   display: block;
+   position: absolute;
+   right: 5px;
+   cursor: pointer;
 }
 
 @media screen and (max-width:650px) {
@@ -363,7 +375,7 @@ html {
     }
 }
 
-@media screen and (max-height:490px) {
+@media screen and (max-height:655px) {
     .searchbox {
         display: none !important;
     }
@@ -375,17 +387,18 @@ html {
         display: none;
     }
 }
+@media screen and (max-height:620px) {
+   .viewport-sub {
+      display: none;
+  }
+}
 
 @media screen and (max-height:340px) {
-    .viewport-sub {
-        display: none;
-    }
+
     #login-form {
         display: none;
     }
-    .gitbox {
-        display: none;
-    }
+
     .slidebtn {
         display: none;
     }

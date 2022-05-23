@@ -8,9 +8,14 @@ const importTodo = () => {
     // * 할 일 목록에 할 일 추가 함수
     const deleteTodo = (event) => {
         const li = event.target.parentElement;
-        li.remove();
-        todos = todos.filter((toDo) => toDo.id !== Number(li.id));
-        saveToDos();
+        li.querySelector("input").className = "slideout2"
+        setTimeout(() => {
+            li.remove();
+            console.log(li.className)
+            todos = todos.filter((toDo) => toDo.id !== Number(li.id));
+            saveToDos();
+        }, 800);
+        
     }
 
     const updateTodo = (event) => {
@@ -50,7 +55,7 @@ const importTodo = () => {
         if (checkbox.checked) {
             span.style.textDecoration = "line-through";
         }
-        const toDoUnderLine = () => {
+        const 밑줄긋기 = () => {
             const span = li.childNodes[1]
             if (checkbox.checked) {
                 span.style.textDecoration = "line-through";
@@ -58,6 +63,7 @@ const importTodo = () => {
                 span.style.textDecoration = "";
             };
         }
+
         li.appendChild(checkbox);
         li.appendChild(span);
         li.appendChild(btn);
@@ -65,7 +71,7 @@ const importTodo = () => {
 
         btn.addEventListener("click", deleteTodo);
         checkbox.addEventListener("click", updateTodo)
-        checkbox.addEventListener("click", toDoUnderLine)
+        checkbox.addEventListener("click", 밑줄긋기)
 
     }
 

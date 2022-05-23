@@ -7,6 +7,7 @@ const slideDiv = document.querySelector("#slide_div");
 const subBtn = viewportSub.querySelector(".btn");
 
 const loadPage = () => {
+    slideBtn1.disabled = "true";
     slideBtn1.style.background = "hsla(0,0%,100%,1)"
     slideBtn2.style.background = "hsla(0,0%,100%,0.4)"
     slideDiv.id = "slide_div1"
@@ -25,6 +26,8 @@ const loadPage = () => {
 
 const toPage1 = () => {
     // 첫 번째 버튼 누름
+    slideBtn1.disabled = "true";
+    slideBtn2.removeAttribute("disabled")
     slideBtn1.style.background = "hsla(0,0%,100%,1)"
     slideBtn2.style.background = "hsla(0,0%,100%,0.4)"
     slidebtnDiv.classList.add("slideUp")
@@ -49,6 +52,8 @@ const toPage1 = () => {
 
 const toPage2 = () => {
     // 두 번째 버튼 누름
+    slideBtn2.disabled = "true";
+    slideBtn1.removeAttribute("disabled")
     slideBtn1.style.background = "hsla(0,0%,100%,0.4)";
     slideBtn2.style.background = "hsla(0,0%,100%,1)";
     slideDiv.className = 'slideout1';
@@ -59,9 +64,11 @@ const toPage2 = () => {
         slideDiv.innerHTML = `
         <div class="todo-title">할 일 목록</div>
         <div class="todo-content"><ul id="todo-list"></ul></div>
+        <span class="hidden">하이요</span>
         <form id="todo-form">
             <input type="text" maxlength="25" placeholder="할 일을 입력하세요">
-        </form>`;
+        </form>
+        `;
         importTodo();
         page2Clock();
     }, 500);

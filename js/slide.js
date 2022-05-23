@@ -82,5 +82,5 @@ slideBtn1.addEventListener("click", toPage1);
 console.dir(slideBtn1);
 
 if (window.matchMedia('(max-width:800px').matches) {
-    console.log("줄어듦")
+    console.log()
 }

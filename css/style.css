@@ -9,6 +9,22 @@ html {
     margin: 0;
     overflow: auto;
 }
+
+body ::-webkit-scrollbar {
+   width: 8px;
+}
+
+body ::-webkit-scrollbar-thumb {
+   height: 8px;
+   background: #05c3a7;
+   border-radius: 10px;
+}
+
+body ::-webkit-scrollbar-track {
+   border-radius: 10px;
+   background: #b5f1e8;
+}
+
 #login-form {
     display: flex;
     flex-direction: column;
@@ -487,4 +503,8 @@ html {
       height: 33%;
       opacity: 0;
   }
+}
+
+.underLine {
+   text-decoration: line-through
 }

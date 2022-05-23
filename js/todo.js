@@ -2,6 +2,9 @@ const importTodo = () => {
     const todoForm = document.getElementById("todo-form"); // todo 할 일 작성 폼 선택
     const toDoInput = todoForm.querySelector("input"); // todo 할 일 입력창 선택
     const todoList = document.getElementById("todo-list"); // todo 할 일 목록 선ㅌ택
+
+    const selectAllbtn = document.querySelector(".selectAllbtn");
+
     let todos = [];
     const todoKey = "todos"
 
@@ -21,16 +24,15 @@ const importTodo = () => {
     const updateTodo = (event) => {
         const li = event.target.parentElement;
 
-        for (let i = 0; i < todos.length; i++) {
-            if (li.id == todos[i].id) {
-                if (todos[i].bool == true) {
-                    todos[i].bool = false
+        todos.forEach(e => {
+            if(e[i].id == li.id) {
+                if(e.bool == true) {
+                    e.bool = false;
                 } else {
-                    todos[i].bool = true
+                    e.bool = true;
                 }
             }
-        }
-        console.log(todos);
+        });
         saveToDos();
         // 얘가 local storage에 있는 얘 object 형태
     }
@@ -53,14 +55,14 @@ const importTodo = () => {
         checkbox.type = "checkbox"
         checkbox.checked = newTodo.bool;
         if (checkbox.checked) {
-            span.style.textDecoration = "line-through";
+            span.className = "underLine";
         }
-        const 밑줄긋기 = () => {
+        const underLine = () => {
             const span = li.childNodes[1]
             if (checkbox.checked) {
-                span.style.textDecoration = "line-through";
+                span.className = "underLine";
             } else {
-                span.style.textDecoration = "";
+                span.className = "";
             };
         }
 
@@ -71,7 +73,7 @@ const importTodo = () => {
 
         btn.addEventListener("click", deleteTodo);
         checkbox.addEventListener("click", updateTodo)
-        checkbox.addEventListener("click", 밑줄긋기)
+        checkbox.addEventListener("click", underLine)
 
     }
 
@@ -90,6 +92,22 @@ const importTodo = () => {
         saveToDos();
     }
 
+    const handleSelectAll = (e) => {
+        const checkbox = document.querySelectorAll("li > input");
+        const span = document.querySelectorAll("li > span")
+        todoList.className = "underLine"
+        checkbox.forEach(v => {
+            v.checked = true;
+            
+        });
+        
+        todos.forEach(e => {
+            e.bool = "true";
+        });
+        console.log(span)
+        saveToDos();
+    }
+
     const savedToDos = localStorage.getItem(todoKey);
 
     if (savedToDos !== null) {
@@ -99,5 +117,5 @@ const importTodo = () => {
     }
 
     todoForm.addEventListener("submit", handleToDoSubmit);
-
+    selectAllbtn.addEventListener("click", handleSelectAll);
 }

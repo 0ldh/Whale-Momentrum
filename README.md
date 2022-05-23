@@ -13,7 +13,7 @@
 - 슬라이드 효과 => 일단 완료
 - CSS to SCSS
 - todo list X버튼 display none , hover block
-- todo List 스크롤바 CSS
+- todo List 스크롤바 CSS => 일단 완료
 - todolist 삭제시 밀리면서 아래에서 한 칸 위로 당겨지는 효과 => 일단 완료
 - todoList 전체선택, 선택삭제 버튼
 
@@ -22,7 +22,8 @@
 - 날씨 API 날씨별 아이콘 바꾸기 
 - class 객체화 후 js 파일 묶기 (가능하면)
 - viewport-sub 클릭시 to page1, to page2
-- todoList 전체선택, 선택삭제 상호작용
+- todoList 전체선택, 선택삭제 상호작용 ＃ 전체선택까지 완료
+   ㄴ 전부 className = ""로 변경, checked = false 로 변경
 - todoInput value = ""일 경우 흔들림 애니메이션, 안내
 
 ### ALL

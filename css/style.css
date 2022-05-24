@@ -1,5 +1,9 @@
-.hidden {
+@import url('https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=Do+Hyeon&family=Dongle&family=Jua&family=Nanum+Pen+Script&family=Noto+Sans+KR:wght@300&family=Play&display=swap');.hidden {
     display: none !important;
+}
+
+.underLine {
+    text-decoration: line-through;
 }
 
 body,
@@ -11,18 +15,18 @@ html {
 }
 
 body ::-webkit-scrollbar {
-   width: 8px;
+    width: 8px;
 }
 
 body ::-webkit-scrollbar-thumb {
-   height: 8px;
-   background: #05c3a7;
-   border-radius: 10px;
+    height: 8px;
+    background: #05c3a7;
+    border-radius: 10px;
 }
 
 body ::-webkit-scrollbar-track {
-   border-radius: 10px;
-   background: #b5f1e8;
+    border-radius: 10px;
+    background: #b5f1e8;
 }
 
 #login-form {
@@ -31,7 +35,6 @@ body ::-webkit-scrollbar-track {
     align-items: center;
     z-index: 2;
 }
-
 
 #login-form > input {
     border: none;
@@ -51,7 +54,7 @@ body ::-webkit-scrollbar-track {
     font-size: 60px;
     color: #fff;
     margin: -23px auto 0;
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-family: 'Jua', sans-serif;
 }
 
 #greeting {
@@ -90,7 +93,6 @@ body ::-webkit-scrollbar-track {
     z-index: 1;
 }
 
-
 #todo-form {
     display: flex;
     flex-direction: column;
@@ -99,7 +101,7 @@ body ::-webkit-scrollbar-track {
     height: 40px;
     border-radius: 48px;
     box-sizing: border-box;
-    margin: 0 10px 10px;
+    margin: 10px;
     box-shadow: inset 0 0 0 1.5px #05c3a7, 0 -10px 10px #fff;
     transition: box-shadow 2s;
 }
@@ -114,6 +116,13 @@ body ::-webkit-scrollbar-track {
     color: #a8a8a8;
     box-sizing: border-box;
     outline: none;
+    font-family: 'Noto Sans KR', sans-serif;
+}
+
+.warningMsg {
+    animation-name: shake;
+    animation-duration: 1s;
+    font-family: 'Noto Sans KR', sans-serif;
 }
 
 #quote {
@@ -121,7 +130,7 @@ body ::-webkit-scrollbar-track {
     flex-direction: column;
     align-items: center;
     z-index: 1;
-    font-family: 'Times New Roman', Times, serif;
+    font-family: 'Play', sans-serif;
     font-size: 30px;
     font-weight: 600;
     position: absolute;
@@ -143,13 +152,11 @@ body ::-webkit-scrollbar-track {
 }
 
 #todo-list > li:hover {
-   background-color: hsl(0, 0%, 90%);
+    background-color: hsl(0, 0%, 90%);
 }
 
-
-
-
 #todo-list > li > input {
+    position: absolute;
     margin-right: 10px;
     width: 18px;
     height: 18px;
@@ -225,6 +232,7 @@ body ::-webkit-scrollbar-track {
 .search::placeholder {
     font-weight: 600;
     color: white;
+
 }
 
 .viewport-sub {
@@ -232,16 +240,16 @@ body ::-webkit-scrollbar-track {
     top: 0;
     left: 10px;
     z-index: 2;
+    font-weight: bold;
     background-color: transparent;
     border-radius: 14px;
     padding: 5px;
     display: flex;
     flex-direction: row;
     align-items: center;
-    font-weight: bold;
-    font-size: 16px;
+    font-size: 20px;
     color: #fff;
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-family: 'Noto Sans KR', sans-serif;
 }
 
 .viewport-sub > .weather {
@@ -257,8 +265,6 @@ body ::-webkit-scrollbar-track {
     display: flex;
     flex-direction: column;
     align-items: center;
-    font-weight: bold;
-    font-size: 16px;
     color: #fff;
     margin: 5px;
     cursor: pointer;
@@ -326,16 +332,17 @@ body ::-webkit-scrollbar-track {
     margin-top: 10px;
     z-index: 10;
     overflow: hidden;
-    font-family: sans-serif;
+    font-family: 'Jua', sans-serif;
     display: flex;
     flex-direction: column;
     justify-content: space-around;
 }
 
 .todo-title {
-    font-size: 14px;
+    font-size: 20px;
     font-weight: 400;
     text-align: center;
+    font-family: 'Black Han Sans', sans-serif;
 }
 
 .todo-content {
@@ -350,16 +357,16 @@ body ::-webkit-scrollbar-track {
 
 #todo-list > li > a {
 
-   position: absolute;
-   right: 5px;
-   cursor: pointer;
+    position: absolute;
+    right: 5px;
+    cursor: pointer;
 }
 
 #todo-list > li > a:hover {
-   display: block;
-   position: absolute;
-   right: 5px;
-   cursor: pointer;
+    display: block;
+    position: absolute;
+    right: 5px;
+    cursor: pointer;
 }
 
 @media screen and (max-width:650px) {
@@ -380,7 +387,7 @@ body ::-webkit-scrollbar-track {
         margin-top: 10px;
     }
     #login-form > input {
-       width: 20rem;
+        width: 20rem;
     }
 
 }
@@ -404,9 +411,9 @@ body ::-webkit-scrollbar-track {
     }
 }
 @media screen and (max-height:620px) {
-   .viewport-sub {
-      display: none;
-  }
+    .viewport-sub {
+        display: none;
+    }
 }
 
 @media screen and (max-height:340px) {
@@ -433,78 +440,110 @@ body ::-webkit-scrollbar-track {
 }
 
 .slidein1 {
-   animation-name: slidein1;
-   animation-duration: 1s;
+    animation-name: slidein1;
+    animation-duration: 1s;
 }
 
 .slidein2 {
-   animation-name: slidein2;
-   animation-duration: 1s;
+    animation-name: slidein2;
+    animation-duration: 1s;
 }
 
 @keyframes slidein1 {
-   from {
-       margin-right: 100%;
-       opacity: 0;
-   }
+    from {
+        margin-right: 100%;
+        opacity: 0;
+    }
 
-   to {
-       margin-right: 0;
-       opacity: 1;
-       
-   }
+    to {
+        margin-right: 0;
+        opacity: 1;
+
+    }
 }
 
 @keyframes slidein2 {
-  from {
-      margin-left: 100%;
-      height: 33%;
-      opacity: 0;
-  }
+    from {
+        margin-left: 100%;
+        height: 33%;
+        opacity: 0;
+    }
 
-  to {
-      opacity: 1;
-      margin-left: 0;
-      height: 30rem;
-  }
+    to {
+        opacity: 1;
+        margin-left: 0;
+        height: 30rem;
+    }
 }
 
 .slideout1 {
-   animation-name: slideout1;
-   animation-duration: 1s;
+    animation-name: slideout1;
+    animation-duration: 1s;
 }
 
 .slideout2 {
-   animation-name: slideout2;
-   animation-duration: 1s;
+    animation-name: slideout2;
+    animation-duration: 1s;
 }
 
 @keyframes slideout1 {
-   from {
-       margin-right: 0;
-       opacity: 1;
-   }
+    from {
+        margin-right: 0;
+        opacity: 1;
+    }
 
-   to {
-      opacity: 0;
-       margin-right: 145%;
-   }
+    to {
+        opacity: 0;
+        margin-right: 145%;
+    }
 }
 
 @keyframes slideout2 {
-  from {
-      margin-left: 0%;
-      height: 30rem;
-      opacity: 1;
-  }
+    from {
+        margin-left: 0;
+        height: 30rem;
+        opacity: 1;
+    }
 
-  to {
-      margin-left: 145%;
-      height: 33%;
-      opacity: 0;
-  }
+    to {
+        margin-left: 145%;
+        height: 33%;
+        opacity: 0;
+    }
 }
 
-.underLine {
-   text-decoration: line-through
+.seldelBtn {
+    display: flex;
+    align-content: stretch;
+    justify-content: space-around;
+}
+
+.selectAllbtn {
+    border: none;
+    border-radius: 10px;
+    background: #26c2db;
+    font-size: 20px;
+    box-shadow: 0 2px 0 rgb(0 0 0 / 50%);
+    font-family: 'Do Hyeon', sans-serif;
+    color: #FFF;
+    cursor: pointer;
+}
+
+.deleteBtn {
+    border: none;
+    border-radius: 10px;
+    background: #E16A9D;
+    font-size: 20px;
+    box-shadow: 0 2px 0 rgb(0 0 0 / 50%);
+    font-family: 'Do Hyeon', sans-serif;
+    color: #FFF;
+    cursor: pointer;
+}
+
+
+
+li > span {
+    font-size: 30px;
+    margin-left: 30px;
+    white-space: nowrap;
 }

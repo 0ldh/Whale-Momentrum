@@ -63,13 +63,12 @@ const toPage2 = () => {
         slideDiv.className = 'slidein2';
         slideDiv.id = "slide_div2";
         slideDiv.innerHTML = `
-        <div class="todo-title">할 일 목록 </div>
+        <div class="todo-title">Todo-List</div>
         <div class="todo-content"><ul id="todo-list"></ul></div>
-        <div>
-        <input class="selectAllbtn" type="button" value="전체 선택">
-        <input class="deleteBtn" type="button" value="선택 삭제">
+        <div class="seldelBtn">
+        <input class="selectAllbtn" type="button" value="전체선택">
+        <input class="deleteBtn" type="button" value="선택삭제">
         </div> 
-        <span class="">하이요</span>
         <form id="todo-form">
             <input type="text" maxlength="25" placeholder="할 일을 입력하세요">
         </form>

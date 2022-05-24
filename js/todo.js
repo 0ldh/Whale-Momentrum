@@ -10,9 +10,7 @@ const importTodo = () => {
     // * 할 일 목록에 할 일 추가 함수
     const deleteTodo = (event) => {
         const li = event.target.parentElement;
-        li
-            .querySelector("input")
-            .className = "slideout2"
+        li.className = "slideout2"
         setTimeout(() => {
             li.remove();
             console.log(li.className)
@@ -46,8 +44,8 @@ const importTodo = () => {
         const span = document.querySelectorAll("li > span")
         console.log(checkbox);
         console.log(span);
-        if (!selectBool) {                      //* let selectBool = false;
-            checkbox.forEach(v => {     
+        if (!selectBool) { //* let selectBool = false;
+            checkbox.forEach(v => {
                 v.checked = true;
             });
             todos.forEach(e => {
@@ -61,7 +59,7 @@ const importTodo = () => {
                 v.checked = false;
             });
             todos.forEach(e => {
-                e.bool =false;
+                e.bool = false;
             });
             span.forEach(e => {
                 e.className = ""
@@ -124,8 +122,6 @@ const importTodo = () => {
         patinTodo(objectTodo);
         saveToDos();
     }
-
-    
 
     const savedToDos = localStorage.getItem(todoKey);
 

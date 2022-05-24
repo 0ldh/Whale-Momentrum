@@ -24,7 +24,6 @@ const importTodo = () => {
 
     const updateTodo = (event) => {
         const li = event.target.parentElement;
-
         todos.forEach(e => {
             if (e.id == li.id) {
                 if (e.bool == true) {
@@ -42,6 +41,36 @@ const importTodo = () => {
         localStorage.setItem("todos", JSON.stringify(todos));
     };
 
+    const handleSelectAll = (e) => {
+        const checkbox = document.querySelectorAll("li > input");
+        const span = document.querySelectorAll("li > span")
+        console.log(checkbox);
+        console.log(span);
+        if (!selectBool) {                      //* let selectBool = false;
+            checkbox.forEach(v => {     
+                v.checked = true;
+            });
+            todos.forEach(e => {
+                e.bool = true;
+            });
+            span.forEach(e => {
+                e.className = "underLine"
+            })
+        } else {
+            checkbox.forEach(v => {
+                v.checked = false;
+            });
+            todos.forEach(e => {
+                e.bool =false;
+            });
+            span.forEach(e => {
+                e.className = ""
+            })
+        }
+        saveToDos();
+        selectBool = !selectBool;
+    }
+
     const patinTodo = (newTodo) => {
         const li = document.createElement("li");
         li.id = newTodo.id;
@@ -55,8 +84,11 @@ const importTodo = () => {
         const checkbox = document.createElement("input")
         checkbox.type = "checkbox"
         checkbox.checked = newTodo.bool;
-        if (checkbox.checked) {
+        console.log(typeof newTodo.bool)
+        if (newTodo.bool) {
             span.className = "underLine";
+        } else {
+            span.className = "";
         }
         const underLine = () => {
             const span = li.childNodes[1]
@@ -93,35 +125,7 @@ const importTodo = () => {
         saveToDos();
     }
 
-    const handleSelectAll = (e) => {
-        const checkbox = document.querySelectorAll("li > input");
-        const span = document.querySelectorAll("li > span")
-        if (!selectBool) {
-            checkbox.forEach(v => {
-                v.checked = true;
-            });
-            todos.forEach(e => {
-                e.bool = "true";
-            });
-            span.forEach(e => {
-                e.className = "underLine"
-            })
-            saveToDos();
-            selectBool = !selectBool;
-        } else {
-            checkbox.forEach(v => {
-                v.checked = false;
-            });
-            todos.forEach(e => {
-                e.bool = "false";
-            });
-            span.forEach(e => {
-                e.className = ""
-            })
-            saveToDos();
-            selectBool = !selectBool;
-        }
-    }
+    
 
     const savedToDos = localStorage.getItem(todoKey);
 

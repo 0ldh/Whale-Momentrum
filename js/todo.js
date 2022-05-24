@@ -69,8 +69,7 @@ const importTodo = () => {
         }
         saveToDos();
         selectBool = !selectBool;
-        
-        
+
     }
 
     const patinTodo = (newTodo) => {
@@ -116,15 +115,26 @@ const importTodo = () => {
     const handleToDoSubmit = (event) => {
         event.preventDefault();
         const newTodo = toDoInput.value;
-        toDoInput.value = "";
-        const objectTodo = {
-            id: Date.now(),
-            text: newTodo,
-            bool: false
+        if (newTodo === "") {
+            slideDiv.className = "warningMsg";
+            toDoInput.className = "warningPh"
+            todoForm.style.boxShadow = "inset 0 0 0 1.5px #ff003e, 0 -10px 10px #fff";
+            setTimeout(() => {
+               slideDiv.className=""
+            }, 1000);
+        } else {
+            toDoInput.value = "";
+            todoForm.style.boxShadow = "inset 0 0 0 1.5px #05c3a7, 0 -10px 10px transparent";
+            const objectTodo = {
+                id: Date.now(),
+                text: newTodo,
+                bool: false
+            }
+            todos.push(objectTodo);
+            patinTodo(objectTodo);
+            saveToDos();
         }
-        todos.push(objectTodo);
-        patinTodo(objectTodo);
-        saveToDos();
+
     }
 
     const savedToDos = localStorage.getItem(todoKey);
@@ -137,4 +147,5 @@ const importTodo = () => {
 
     todoForm.addEventListener("submit", handleToDoSubmit);
     selectAllbtn.addEventListener("click", handleSelectAll);
+
 }

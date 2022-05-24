@@ -69,7 +69,7 @@ const toPage2 = () => {
         <input class="selectAllbtn" type="button" value="전체선택">
         <input class="deleteBtn" type="button" value="선택삭제">
         </div> 
-        <form id="todo-form" class="warningMsg">
+        <form id="todo-form">
             <input type="text" maxlength="25" placeholder="할 일을 입력하세요">
         </form>
         `;

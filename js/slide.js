@@ -84,8 +84,9 @@ const toPage2 = () => {
 const page1ToDo = ()=> {
     let popToDos = [];
     let popToDoCount = 0;
-    const toDoContent =document.querySelector(".pop-content")
+    const toDoContent = document.querySelector(".pop-content")
     const savedToDos = localStorage.getItem("todos");
+    toDoContent.innerHTML = "";
     if (savedToDos !== null) {
         const parseTodos = JSON.parse(savedToDos);
         parseTodos.forEach(e => {

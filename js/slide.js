@@ -24,6 +24,7 @@ const loadPage = () => {
         importClock();
         importGreeting();
         todosCountUpdate();
+        page1ToDo();
 }
 
 const toPage1 = () => {
@@ -48,6 +49,7 @@ const toPage1 = () => {
         importClock();
         importGreeting();
         todosCountUpdate();
+        page1ToDo();
     }, 500);
 
 }
@@ -77,6 +79,31 @@ const toPage2 = () => {
         page2Clock();
     }, 500);
 
+}
+
+const page1ToDo = ()=> {
+    let popToDos = [];
+    let popToDoCount = 0;
+    const toDoContent =document.querySelector(".pop-content")
+    const savedToDos = localStorage.getItem("todos");
+    if (savedToDos !== null) {
+        const parseTodos = JSON.parse(savedToDos);
+        parseTodos.forEach(e => {
+            if(!e.bool) {
+                popToDos.push(e)
+            }
+        });
+        popToDos.forEach((e)=>{
+            popToDoCount++;
+            const input = document.createElement("input");
+            input.type = "text"
+            input.value = `${popToDoCount}. ${e.text}`;
+            input.id = e.id;
+            input.disabled = true;
+
+            toDoContent.appendChild(input);
+        })
+    }
 }
 
 const page2Clock = () => {

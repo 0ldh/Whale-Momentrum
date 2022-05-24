@@ -4,7 +4,9 @@
 ## issue
 - 첫 번째 슬라이드에서 두 번째 슬라이드 이동 후 todo check 후 첫 번째 슬라이드에서 다시 두 번째 슬라이드 이동 시 체크해제 => 해결
 - 한글만 체크박스 같이 나오는가? > 아님 글자 수 문제
-- 슬라이드 시 살짝 툭 떨어지는 현상
+- 슬라이드 시 살짝 툭 떨어지는 현상 => 해결
+- popToDo 지워도 그래도 남아있음. 
+   ㄴ span 태그 popTodo 카운트 초기화 후 계속 재선언 됨
 
 ## Todo
 ### HTML/CSS
@@ -17,7 +19,7 @@
 - todo List 스크롤바 CSS => 일단 완료
 - todolist 삭제시 밀리면서 아래에서 한 칸 위로 당겨지는 효과 => 일단 완료
 - todoList 전체선택, 선택삭제 버튼 => 일단 완료 
-- 할 일 목록 mouse hover 팝업 창 
+- 할 일 목록 mouse hover 팝업 창 =>
 
 ### JS
 - li 태그 input 태그로 변경 > 실패
@@ -27,8 +29,11 @@
 - todoList 전체선택, 선택삭제 상호작용 => 일단 완료
 - todoInput value = ""일 경우 흔들림 애니메이션 => 일단 완료
 
+- todo 팝업창 class 이름으로 display 조절 나눠서 하기
+
+
 ### ALL
 - 코드 정리
 
 ## methodology
-=>
+> todoPop

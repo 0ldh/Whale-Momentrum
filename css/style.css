@@ -337,7 +337,7 @@ body ::-webkit-scrollbar-track {
 
 #slide_div1 {
     position: relative;
-    z-index: 10;
+    z-index: 1;
     overflow: hidden;
     background-color: transparent;
 }
@@ -592,4 +592,58 @@ li > span {
     font-size: 30px;
     margin-left: 30px;
     white-space: nowrap;
+}
+
+.todoPop {
+    animation-name: slide;
+    animation-duration: 1s;
+    display: none !important;
+    position: absolute;
+    top: 100%;
+    width: 25rem;
+    height: 30rem;
+    border-radius: 14px !important;
+    background-color: #b3d4fb !important;
+    box-shadow: 0 2px 12px rgb(0 0 0 / 50%);
+    z-index: 10;
+    overflow: hidden;
+    font-family: 'Jua', sans-serif;
+}
+
+.btn-todo:hover + .todoPop {
+    display: block !important;
+}
+
+.pop-title {
+    text-align: center;
+    background-color: black;
+    border-radius: 10px;
+}
+
+.pop-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    cursor: auto !important;
+}
+
+.pop-content > input{
+    white-space: nowrap;
+    width: 100%;
+    border: 0;
+    margin-top: 11px;
+    background-color: transparent;
+    font-size: 25px;
+    font-family: 'Jua', sans-serif;
+    border-bottom: 1px solid;
+    
+}
+
+@keyframes slide {
+    from {
+        height: 0;
+    }
+    to {
+        height: 30rem;
+    }
 }

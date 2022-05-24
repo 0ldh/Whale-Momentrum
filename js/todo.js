@@ -10,7 +10,7 @@ const importTodo = () => {
     // * 할 일 목록에 할 일 추가 함수
     const deleteTodo = (event) => {
         const li = event.target.parentElement;
-        li.className = "slideout2"
+        li.className = "spanout"
         setTimeout(() => {
             li.remove();
             console.log(li.className)

@@ -512,6 +512,11 @@ body ::-webkit-scrollbar-track {
     animation-duration: 1s;
 }
 
+.spanout {
+    animation-name: spanout;
+    animation-duration: 1s;
+}
+
 @keyframes slideout1 {
     from {
         margin-right: 0;
@@ -534,6 +539,18 @@ body ::-webkit-scrollbar-track {
     to {
         margin-left: 145%;
         height: 33%;
+        opacity: 0;
+    }
+}
+
+@keyframes spanout {
+    from {
+        margin-left: 0;
+        opacity: 1;
+    }
+
+    to {
+        margin-left: 95%;
         opacity: 0;
     }
 }

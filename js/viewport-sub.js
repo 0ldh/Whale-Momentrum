@@ -4,6 +4,8 @@ const viewportSub = document.querySelector(".viewport-sub");
 const docLocat = viewportSub.querySelector("span:first-child");
 const docTemp = viewportSub.querySelector("span:nth-child(2)")
 
+let weatherMain;
+
 const onGeoOk = (getCurrentPosition) => {
     const lat = getCurrentPosition.coords.latitude;
     const lnt = getCurrentPosition.coords.longitude;
@@ -13,14 +15,15 @@ const onGeoOk = (getCurrentPosition) => {
         .then((response) => response.json())
         .then((data) => {
             const name = data.name
-            const weather = data
+            weatherMain = data
                 .weather[0]
                 .main
             const temp = Math.floor(data.main.temp)
 
             docLocat.innerText = name;
             docTemp.innerText = `${temp}'C`;
-            console.log(name, temp)
+            console.log(name, temp, weatherMain)
+            console.log("url", url)
         });
 
 }

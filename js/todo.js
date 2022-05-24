@@ -54,6 +54,7 @@ const importTodo = () => {
             span.forEach(e => {
                 e.className = "underLine"
             })
+            selectAllbtn.value = "선택해제";
         } else {
             checkbox.forEach(v => {
                 v.checked = false;
@@ -64,9 +65,12 @@ const importTodo = () => {
             span.forEach(e => {
                 e.className = ""
             })
+            selectAllbtn.value = "전체선택";
         }
         saveToDos();
         selectBool = !selectBool;
+        
+        
     }
 
     const patinTodo = (newTodo) => {

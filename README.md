@@ -16,7 +16,7 @@
 - todo list X버튼 display none , hover block
 - todo List 스크롤바 CSS => 일단 완료
 - todolist 삭제시 밀리면서 아래에서 한 칸 위로 당겨지는 효과 => 일단 완료
-- todoList 전체선택, 선택삭제 버튼 => 
+- todoList 전체선택, 선택삭제 버튼 => 일단 완료 
 
 ### JS
 - li 태그 input 태그로 변경 > 실패

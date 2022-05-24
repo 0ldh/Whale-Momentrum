@@ -1,4 +1,6 @@
-@import url('https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=Do+Hyeon&family=Dongle&family=Jua&family=Nanum+Pen+Script&family=Noto+Sans+KR:wght@300&family=Play&display=swap');.hidden {
+@import url('https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=Do+Hyeon&family=Dongle&family=Jua&family=Nanum+Pen+Script&family=Noto+Sans+KR:wght@300&family=Play&display=swap');
+
+.hidden {
     display: none !important;
 }
 
@@ -117,7 +119,6 @@ body ::-webkit-scrollbar-track {
     outline: none;
     font-family: 'Noto Sans KR', sans-serif;
 }
-
 
 #todo-form > input::placeholder {
     color: #a8a8a8;
@@ -277,6 +278,7 @@ body ::-webkit-scrollbar-track {
     display: flex;
     flex-direction: column;
     align-items: center;
+    font-size: 15px;
 }
 
 .viewport-sub > div {
@@ -295,9 +297,6 @@ body ::-webkit-scrollbar-track {
     background-color: hsla(0,0%,100%,.4);
 }
 
-.viewport-sub > svg {
-    margin-left: 5px;
-}
 
 .gitbox {
     position: absolute;
@@ -360,14 +359,17 @@ body ::-webkit-scrollbar-track {
 }
 
 .todo-title {
+    height: 100%;
     font-size: 20px;
     font-weight: 400;
     text-align: center;
     font-family: 'Black Han Sans', sans-serif;
-    border: 15px solid #05c3a7;
-    background:#05c3a7;
-    -webkit-text-stroke:1px #fff;
-    
+    background: #05c3a7;
+    -webkit-text-stroke: 1px #fff;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
 }
 
 .todo-content {
@@ -412,6 +414,12 @@ body ::-webkit-scrollbar-track {
     }
     #login-form > input {
         width: 20rem;
+    }
+    .gitbox {
+        display: none;
+    }
+    .viewport-sub {
+        display: none;
     }
 
 }

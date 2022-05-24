@@ -4,6 +4,8 @@ const importTodo = () => {
     const todoList = document.getElementById("todo-list"); // todo 할 일 목록 선택
 
     const selectAllbtn = document.querySelector(".selectAllbtn");
+    const deleteBtn = document.querySelector(".deleteBtn");
+
     let todos = [];
     const todoKey = "todos"
 
@@ -71,6 +73,22 @@ const importTodo = () => {
         selectBool = !selectBool;
 
     }
+    const handleDelete = () => {
+        const checkbox = document.querySelectorAll("li > input");
+        console.log(checkbox);
+        checkbox.forEach((e) => {
+            if (e.checked) {
+                const li = e.parentElement
+                li.className = "spanout"
+                setTimeout(() => {
+                    li.remove();
+                    console.log(li.className)
+                    todos = todos.filter((toDo) => toDo.id !== Number(li.id));
+                    saveToDos();
+                }, 800);
+            } 
+        })
+    }
 
     const patinTodo = (newTodo) => {
         const li = document.createElement("li");
@@ -120,7 +138,7 @@ const importTodo = () => {
             toDoInput.className = "warningPh"
             todoForm.style.boxShadow = "inset 0 0 0 1.5px #ff003e, 0 -10px 10px #fff";
             setTimeout(() => {
-               slideDiv.className=""
+                slideDiv.className = ""
             }, 1000);
         } else {
             toDoInput.value = "";
@@ -147,5 +165,5 @@ const importTodo = () => {
 
     todoForm.addEventListener("submit", handleToDoSubmit);
     selectAllbtn.addEventListener("click", handleSelectAll);
-
+    deleteBtn.addEventListener("click", handleDelete);
 }

@@ -5,7 +5,9 @@
 }
 
 .underLine {
+    color: #a8a8a8;
     text-decoration: line-through;
+    transition: color 0.5s;
 }
 
 body,
@@ -592,6 +594,7 @@ li > span {
     font-size: 30px;
     margin-left: 30px;
     white-space: nowrap;
+    transition: color 0.5s;
 }
 
 .todoPop {

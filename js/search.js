@@ -1,4 +1,3 @@
-//* 검색창
 const searchBox = document.querySelector(".searchbox"); // 검색창 전체 태그 선택 
 const search = searchBox.querySelector("input"); // 검색창 태그 선택
 const searchImg = searchBox.querySelector("img"); // 검색창 구글 로고 넣을 태그 선택

@@ -25,6 +25,8 @@ const onGeoOk = (getCurrentPosition) => {
                 weatherIcon = `<i class="fa-solid fa-cloud fa-3x"></i>`
             } else if (weatherMain == `Clear`) {
                 weatherIcon = `<i class="fa-solid fa-sun fa-3x"></i>`
+            } else if (weatherMain == `Rain`){
+                weatherIcon = `<i class="fa-solid fa-cloud-showers"></i>`  
             } else {
                 weatherIcon = `<i class="fa-solid fa-meteor fa-3x"></i>`
             }

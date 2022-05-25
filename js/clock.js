@@ -1,7 +1,7 @@
 //* Slide.js에서 사용하기 위해 importClock으로 전부 묶어줌
 const importClock = () => {
     //* 시계 변수
-    const clock = document.querySelector("#clock"); // 시계를 넣을 element 
+    const clock = document.querySelector("#clock"); // 시계를 넣을 태그
     //* 시간 가져오는 함수
     const getClock = () => { 
         const date = new Date(); // Date 객체로 현재시간 확인

@@ -1,4 +1,4 @@
-const quotes = [
+const quotes = [ // 명언집 ( type : Object)
     {
         quote: "The way to get started is to quit talking and begin doing.",
         author: "Walt Disney"
@@ -32,16 +32,14 @@ const quotes = [
     }
 ];
 
-const quote = document.querySelector("#quote span:first-child");
-const author = document.querySelector("#quote span:last-child");
+const quote = document.querySelector("#quote span:first-child"); // 명언 태그 선택
+const author = document.querySelector("#quote span:last-child"); // 명언 위인 태그 선택
 
-const todayQuote = quotes[Math.floor(Math.random() * quotes.length)];
+const todayQuote = quotes[Math.floor(Math.random() * quotes.length)]; // 명언집 랜덤 추출 후 할당 
 
+// 명언집 내용 text 삽입
 quote.innerText = todayQuote.quote
 author.innerText = todayQuote.author
-
-quote.style.color = "white";
-author.style.color = "white";
 
 //? Math
 /* ㄴ floor : 버림

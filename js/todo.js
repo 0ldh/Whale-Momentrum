@@ -97,8 +97,13 @@ const importTodo = () => {
         const span = document.createElement("span");
         span.innerText = newTodo.text;
 
+        const btnDiv = document.createElement("div");
+        btnDiv.className = "xBtn"
+
         const btn = document.createElement("a");
         btn.innerText = "❌";
+
+        btnDiv.appendChild(btn);
 
         const checkbox = document.createElement("input")
         checkbox.type = "checkbox"
@@ -120,12 +125,19 @@ const importTodo = () => {
 
         li.appendChild(checkbox);
         li.appendChild(span);
-        li.appendChild(btn);
+        li.appendChild(btnDiv);
         todoList.appendChild(li);
 
         btn.addEventListener("click", deleteTodo);
-        checkbox.addEventListener("click", updateTodo)
-        checkbox.addEventListener("click", underLine)
+        checkbox.addEventListener("click", updateTodo);
+        checkbox.addEventListener("click", underLine);
+        li.addEventListener("mouseenter", ()=> {
+            console.log("마우스 들어옴");
+            btnDiv.style.display = "block";
+        })
+        li.addEventListener("mouseleave", ()=> {
+            btnDiv.style.display = "none";
+        })
 
     }
 

@@ -189,6 +189,13 @@ body ::-webkit-scrollbar-track {
     background-color: transparent;
 }
 
+#todo-list > li > .xBtn {
+    position: absolute;
+    right: 5px;
+    cursor: pointer;
+    display: none;
+}
+
 .bgdiv {
     position: absolute;
     top: 0;
@@ -381,20 +388,6 @@ body ::-webkit-scrollbar-track {
     box-sizing: border-box;
     min-height: 70%;
     max-height: 70%;
-}
-
-#todo-list > li > a {
-
-    position: absolute;
-    right: 5px;
-    cursor: pointer;
-}
-
-#todo-list > li > a:hover {
-    display: block;
-    position: absolute;
-    right: 5px;
-    cursor: pointer;
 }
 
 @media screen and (max-width:650px) {

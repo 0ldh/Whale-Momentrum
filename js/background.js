@@ -19,7 +19,7 @@ const dateHours = new Date(); // 날짜 데이터 저장 (연,월,시간,분,초
 
 //? moring : 06 ~ 12 / noon : 12 ~ 15 / afternoon : 15 ~ 20 / evening : 20 ~ 06
 
-//* 함수 선언
+//* 시간별 배경이미지 가져오는 함수
 const times = () => {
     if (6 <= dateHours.getHours() && dateHours.getHours() < 12) { // 브라우저에서 받은 시간이 6~12 사이라면
         time = "Morning";                                         // time 변수에 morning 저장

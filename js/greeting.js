@@ -1,9 +1,9 @@
-// ! 변수
-
+//* slide.js에 import용으로 전부 묶어줌
 const importGreeting = () => {
-    const loginForm = document.querySelector("#login-form");
-    const loginInput = loginForm.querySelector("#login-form input");
-    const greeting = document.querySelector("#greeting")
+    //* 변수 생성
+    const loginForm = document.querySelector("#login-form"); // 사용자가 입력할 폼
+    const loginInput = loginForm.querySelector("#login-form input"); 
+    const greeting = document.querySelector("#greeting") // 사용자 이름 그릴 곳
 
     const HIDDEN_CLASSNAME = "hidden";
     const USERNAME_KEY = "username";

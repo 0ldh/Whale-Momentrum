@@ -1,21 +1,21 @@
 const importTodo = () => {
-    const todoForm = document.getElementById("todo-form"); // todo 할 일 작성 폼 선택
-    const toDoInput = todoForm.querySelector("input"); // todo 할 일 입력창 선택
-    const todoList = document.getElementById("todo-list"); // todo 할 일 목록 선택
+    const todoForm = document.getElementById("todo-form"); // 할 일 작성 폼 선택
+    const toDoInput = todoForm.querySelector("input"); // 할 일 입력창 선택
+    const todoList = document.getElementById("todo-list"); // 할 일 목록 선택
 
-    const selectAllbtn = document.querySelector(".selectAllbtn");
-    const deleteBtn = document.querySelector(".deleteBtn");
+    const selectAllbtn = document.querySelector(".selectAllbtn"); // 전체선택 태그 선택
+    const deleteBtn = document.querySelector(".deleteBtn"); // 선택삭제 버튼 태그 선택
 
-    let todos = [];
-    const todoKey = "todos"
+    let todos = []; // 할 일 목록을 담아서 js로 다루기 위한 변수
+    const todoKey = "todos" // localStorage에 있는 todos Key값 
 
-    // * 할 일 목록에 할 일 추가 함수
-    const deleteTodo = (event) => {
-        const li = event.target.parentElement;
-        li.className = "spanout"
-        setTimeout(() => {
-            li.remove();
-            console.log(li.className)
+    // * `X버튼`클릭 시 할 일 목록 삭제 함수
+    const deleteTodo = (event) => { // 
+        const li = event.target.parentElement.parentElement; // 클릭한 `X`버튼의 부모요소인 div의 부모요소 li태그 선택
+        li.className = "spanout" // 오른쪽으로 밀려서 fadeOut 애니메이션 용 class 할당
+        setTimeout(() => { // 애니메이션 완료 후 실행하기 위해 사용
+            li.remove(); // 할 일 목록 (li)
+            console.log(li)
             todos = todos.filter((toDo) => toDo.id !== Number(li.id));
             saveToDos();
         }, 800);

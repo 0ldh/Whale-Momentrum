@@ -25,20 +25,19 @@ const importTodo = () => {
         }, 800); // 0.8초 딜레이
 
     }
-
+    //* checkBox 체크 바로 반영해서 localStorage에 저장하는 함수
     const updateTodo = (event) => {
-        const li = event.target.parentElement;
-        todos.forEach(e => {
-            if (e.id == li.id) {
-                if (e.bool == true) {
-                    e.bool = false;
+        const li = event.target.parentElement; // checkBox 상위 요소인 li태그 선택
+        todos.forEach(e => { // 할 일 목록 요소들 하나씩 매개변수로 사용
+            if (e.id == li.id) { // li태그의 아이디는 할 일 목록들의 키값과 동일 해야함
+                if (e.bool == true) { // 체크상태가 이미 true라면 
+                    e.bool = false; // false로 변경
                 } else {
-                    e.bool = true;
+                    e.bool = true; // 체크상태가 false라면 true로 변경
                 }
             }
         });
-        saveToDos();
-        // 얘가 local storage에 있는 얘 object 형태
+        saveToDos(); // 최종적으로 localStorage에 저장
     }
 
 

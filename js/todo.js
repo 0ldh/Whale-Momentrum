@@ -6,19 +6,23 @@ const importTodo = () => {
     const selectAllbtn = document.querySelector(".selectAllbtn"); // 전체선택 태그 선택
     const deleteBtn = document.querySelector(".deleteBtn"); // 선택삭제 버튼 태그 선택
 
-    let todos = []; // 할 일 목록을 담아서 js로 다루기 위한 변수
+    let todos = []; // 할 일 목록, localStorage 값을 담아서 js로 다루기 위한 변수
     const todoKey = "todos" // localStorage에 있는 todos Key값 
+
+    //* toDos 저장 함수
+    const saveToDos = () => { 
+        localStorage.setItem(todoKey, JSON.stringify(todos)); // 
+    };
 
     // * `X버튼`클릭 시 할 일 목록 삭제 함수
     const deleteTodo = (event) => { // 
         const li = event.target.parentElement.parentElement; // 클릭한 `X`버튼의 부모요소인 div의 부모요소 li태그 선택
         li.className = "spanout" // 오른쪽으로 밀려서 fadeOut 애니메이션 용 class 할당
         setTimeout(() => { // 애니메이션 완료 후 실행하기 위해 사용
-            li.remove(); // 할 일 목록 (li)
-            console.log(li)
-            todos = todos.filter((toDo) => toDo.id !== Number(li.id));
-            saveToDos();
-        }, 800);
+            li.remove(); // 할 일 목록 (li) 태그 제거
+            todos = todos.filter((toDo) => toDo.id !== Number(li.id)); // 제거 후 할 일 목록 갱신
+            saveToDos(); // 갱신 후 localStorage 저장
+        }, 800); // 0.8초 딜레이
 
     }
 
@@ -37,9 +41,7 @@ const importTodo = () => {
         // 얘가 local storage에 있는 얘 object 형태
     }
 
-    const saveToDos = () => {
-        localStorage.setItem("todos", JSON.stringify(todos));
-    };
+
 
     const handleSelectAll = (e) => {
         const checkbox = document.querySelectorAll("li > input");
@@ -179,3 +181,6 @@ const importTodo = () => {
     selectAllbtn.addEventListener("click", handleSelectAll);
     deleteBtn.addEventListener("click", handleDelete);
 }
+
+//? fillter => 거름망, 
+//? JSON.stringify(x) => x를 그대로 문자열화 (ex, ["3","4"] => "["+"3"+","+"4"+"]")

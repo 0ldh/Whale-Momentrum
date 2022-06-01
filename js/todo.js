@@ -41,23 +41,23 @@ const importTodo = () => {
     }
 
 
-
+    //* 체크박스 전체선택 함수
     const handleSelectAll = (e) => {
-        const checkbox = document.querySelectorAll("li > input");
-        const span = document.querySelectorAll("li > span")
+        const checkbox = document.querySelectorAll("li > input"); // 체크박스 태그 전체 선택 변수 (배열 형태)
+        const span = document.querySelectorAll("li > span") // 할 일 목록 태그 선택
         console.log(checkbox);
         console.log(span);
-        if (!selectBool) { //* let selectBool = false;
-            checkbox.forEach(v => {
+        if (!selectBool) { //* let selectBool = false; // 선택상태가 false(미선택) 상태라면 
+            checkbox.forEach(v => { // check박스를 선택된 상태(true)로 바꾼다
                 v.checked = true;
             });
-            todos.forEach(e => {
+            todos.forEach(e => { // 할 일 목록의 체크박스 상태 업데이트를 위해 true로 변경
                 e.bool = true;
             });
-            span.forEach(e => {
+            span.forEach(e => { // span 태그에 선택된 상태이기 때문에 밑줄 추가
                 e.className = "underLine"
             })
-            selectAllbtn.value = "선택해제";
+            selectAllbtn.value = "선택해제"; // 전체선택 버튼을 click했을 경우 버튼이름을 선택해제로 변경
         } else {
             checkbox.forEach(v => {
                 v.checked = false;

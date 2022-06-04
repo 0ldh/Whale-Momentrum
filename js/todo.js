@@ -58,22 +58,23 @@ const importTodo = () => {
                 e.className = "underLine"
             })
             selectAllbtn.value = "선택해제"; // 전체선택 버튼을 click했을 경우 버튼이름을 선택해제로 변경
-        } else {
-            checkbox.forEach(v => {
-                v.checked = false;
+        } else { // 전체선택된 상태일 시 실행
+            checkbox.forEach(v => { 
+                v.checked = false; // checkbox 선택해제 
             });
-            todos.forEach(e => {
-                e.bool = false;
+            todos.forEach(e => { 
+                e.bool = false; //localStorage bool값 false로 변경
             });
             span.forEach(e => {
-                e.className = ""
+                e.className = "" // underline 클래스 제거를 위해서 클래스명 비워줌
             })
-            selectAllbtn.value = "전체선택";
+            selectAllbtn.value = "전체선택"; // 다시 전체선택 버튼으로 변경
         }
-        saveToDos();
+        saveToDos(); // 바꿔준 bool값 저장을 위해서 saveToDos 한번 더 실행
         selectBool = !selectBool;
 
     }
+    //* 할 일 목록 제거 함수
     const handleDelete = () => {
         const checkbox = document.querySelectorAll("li > input");
         console.log(checkbox);

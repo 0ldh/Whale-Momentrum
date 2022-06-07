@@ -132,10 +132,6 @@ body ::-webkit-scrollbar-track {
     animation-iteration-count: 7;
 }
 
-.warningPh::placeholder {
-    color: red;
-}
-
 @keyframes shake {
     0% {
         margin-left: 10px;

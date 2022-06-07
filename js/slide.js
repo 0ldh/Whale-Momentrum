@@ -107,7 +107,7 @@ const page1ToDo = ()=> {
         });
         popToDos.forEach((e)=>{ // 저장된 할 일 하나씩 호출
             popToDoCount++; // 호출 될 떄 마다 할 일 순번 1씩 증가
-            const input = document.createElement("input"); // 할 일 목록 태그 새엇ㅇ
+            const input = document.createElement("input"); // 할 일 목록 태그 생성
             input.type = "text" // 타입 설정
             input.value = `${popToDoCount}. ${e.text}`; // 할 일 순번, 할 일 할당
             input.disabled = true; // 재입력 불가능 하게 disabled 속성 추가

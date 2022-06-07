@@ -11,7 +11,7 @@ const importTodo = () => {
 
     //* toDos 저장 함수
     const saveToDos = () => { 
-        localStorage.setItem(todoKey, JSON.stringify(todos)); // 
+        localStorage.setItem(todoKey, JSON.stringify(todos)); // "todos"를 키로 todos 배열 localStorage에 저장
     };
 
     // * `X버튼`클릭 시 할 일 목록 삭제 함수
@@ -45,8 +45,6 @@ const importTodo = () => {
     const handleSelectAll = (e) => {
         const checkbox = document.querySelectorAll("li > input"); // 체크박스 태그 전체 선택 변수 (배열 형태)
         const span = document.querySelectorAll("li > span") // 할 일 목록 태그 선택
-        console.log(checkbox);
-        console.log(span);
         if (!selectBool) { //* let selectBool = false; // 선택상태가 false(미선택) 상태라면 
             checkbox.forEach(v => { // check박스를 선택된 상태(true)로 바꾼다
                 v.checked = true;
@@ -76,24 +74,23 @@ const importTodo = () => {
     }
     //* 할 일 목록 제거 함수
     const handleDelete = () => {
-        const checkbox = document.querySelectorAll("li > input");
-        console.log(checkbox);
-        checkbox.forEach((e) => {
-            if (e.checked) {
-                const li = e.parentElement
-                li.className = "spanout"
-                setTimeout(() => {
-                    li.remove();
-                    console.log(li.className)
-                    todos = todos.filter((toDo) => toDo.id !== Number(li.id));
+        const checkbox = document.querySelectorAll("li > input"); // 체크박스 html 태그 모두 선택 (배열 형태)
+        checkbox.forEach((e) => { // 체크박스 요소 하나씩 검사
+            if (e.checked) { // e.checked가 true라면 체크되어 있는 상태
+                const li = e.parentElement // 체크 박스 상위 요소인 li 태그 
+                li.className = "spanout" // spanout 애니메이션 
+                setTimeout(() => { // 애니메이션 진행시간을 위해 setTimeout으로 딜레이
+                    li.remove(); // 선택된 할 일 (li) 제거
+                    todos = todos.filter((toDo) => toDo.id !== Number(li.id)); // 제거된 li 태그를 제외한 todos 배열 재할당
                     saveToDos();
                 }, 800);
             } 
         })
     }
 
-    const patinTodo = (newTodo) => {
-        const li = document.createElement("li");
+    //* 할 일 목록 그리는 함수
+    const patinTodo = (newTodo) => { // 할 일 목록을 매개변수로 함
+        const li = document.createElement("li"); 
         li.id = newTodo.id;
 
         const span = document.createElement("span");
@@ -110,14 +107,14 @@ const importTodo = () => {
         const checkbox = document.createElement("input")
         checkbox.type = "checkbox"
         checkbox.checked = newTodo.bool;
-        console.log(typeof newTodo.bool)
-        if (newTodo.bool) {
+        if (newTodo.bool) { // checkbox 체크 확인
             span.className = "underLine";
         } else {
             span.className = "";
         }
+        //* 체크박스 확인하여 밑줄 긋는 함수
         const underLine = () => {
-            const span = li.childNodes[1]
+            const span = li.childNodes[1] // li 태그의 첫번째 자식 노드 확인
             if (checkbox.checked) {
                 span.className = "underLine";
             } else {
@@ -133,6 +130,8 @@ const importTodo = () => {
         btn.addEventListener("click", deleteTodo);
         checkbox.addEventListener("click", updateTodo);
         checkbox.addEventListener("click", underLine);
+
+        //* X버튼 hover시 보이는 효과
         li.addEventListener("mouseenter", ()=> {
             console.log("마우스 들어옴");
             btnDiv.style.display = "block";
@@ -143,15 +142,14 @@ const importTodo = () => {
 
     }
 
-    // * form 태그 submit 시 새로고침기능 제어
+    // * todo form에 할 일 입력 함수
     const handleToDoSubmit = (event) => {
-        event.preventDefault();
-        const newTodo = toDoInput.value;
+        event.preventDefault(); // 새로고침기능 제어
+        const newTodo = toDoInput.value; // 입력한 value 할당
         if (newTodo === "") {
             slideDiv.className = "warningMsg";
-            toDoInput.className = "warningPh"
             todoForm.style.boxShadow = "inset 0 0 0 1.5px #ff003e, 0 -10px 10px #fff";
-            setTimeout(() => {
+            setTimeout(() => { // 애니메이션 진행 딜레이
                 slideDiv.className = ""
             }, 1000);
         } else {
@@ -162,21 +160,21 @@ const importTodo = () => {
                 text: newTodo,
                 bool: false
             }
-            todos.push(objectTodo);
-            patinTodo(objectTodo);
-            saveToDos();
+            todos.push(objectTodo); // js 쪽 할 일 목록 업데이트
+            patinTodo(objectTodo); // 할 일 목록에 할 일 새로 업데이트
+            saveToDos(); // localStorage 할 일 목록 업데이트
         }
 
     }
 
+    //* 할 일 목록이 비어있지 않다면 할 일 목록을 todoList에 그린다는 조건문
     const savedToDos = localStorage.getItem(todoKey);
-
     if (savedToDos !== null) {
         const parseTodos = JSON.parse(savedToDos);
         todos = parseTodos;
         parseTodos.forEach(patinTodo);
     }
-
+    
     todoForm.addEventListener("submit", handleToDoSubmit);
     selectAllbtn.addEventListener("click", handleSelectAll);
     deleteBtn.addEventListener("click", handleDelete);

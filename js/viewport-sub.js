@@ -5,8 +5,14 @@ const weatherDiv = viewportSub.querySelector(".weather_icon");
 const docTemp = viewportSub.querySelector("span:nth-child(2)")
 const docLocat = viewportSub.querySelector("span:nth-child(3)");
 
-let weatherMain;
+let weatherMain; // 날씨 저장공간
 
+//* 위치 비동의 허용거부 발생 함수
+const onGeoError = () => {
+    alert("지역을 찾을 수 없습니다")
+}
+
+//* 위치 허용 시 발생함수
 const onGeoOk = (getCurrentPosition) => {
     const lat = getCurrentPosition.coords.latitude;
     const lnt = getCurrentPosition.coords.longitude;
@@ -19,19 +25,19 @@ const onGeoOk = (getCurrentPosition) => {
             weatherMain = data
                 .weather[0]
                 .main
-            const temp = Math.floor(data.main.temp)
-                        let weatherIcon;
-            if(weatherMain == `Clouds`) {
+            const temp = Math.floor(data.main.temp);
+            let weatherIcon;
+            if (weatherMain == `Clouds`) {
                 weatherIcon = `<i class="fa-solid fa-cloud fa-3x"></i>`
             } else if (weatherMain == `Clear`) {
                 weatherIcon = `<i class="fa-solid fa-sun fa-3x"></i>`
-            } else if (weatherMain == `Rain`){
-                weatherIcon = `<i class="fa-solid fa-cloud-showers"></i>`  
+            } else if (weatherMain == `Rain`) {
+                weatherIcon = `<i class="fa-solid fa-cloud-showers"></i>`
             } else {
                 weatherIcon = `<i class="fa-solid fa-meteor fa-3x"></i>`
             }
 
-            weatherDiv.innerHTML =weatherIcon;
+            weatherDiv.innerHTML = weatherIcon;
             docLocat.innerText = name;
             docTemp.innerText = `${temp}'C`;
             console.log(name, temp, weatherMain)
@@ -45,10 +51,6 @@ const weather = viewportSub.querySelector(".weather");
 weather.addEventListener("click", () => {
     location.href = "https://google.com/search?q=날씨"
 })
-
-const onGeoError = () => {
-    alert("지역을 찾을 수 없습니다")
-}
 
 navigator
     .geolocation

@@ -26,5 +26,5 @@
 ### ALL
 - 코드 정리 및 리뷰
 
-## methodology
-> todoPop
+# Pages
+> https://bb8dd.github.io/Whale-Momentrum/

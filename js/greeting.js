@@ -14,6 +14,7 @@ const importGreeting = () => {
     greeting
       .classList // greeting의 class 목록 불러오기
       .remove(HIDDEN_CLASSNAME); // classList에서 클래스명 hidden 제거
+    // eslint-disable-next-line no-undef
     greeting.innerText = `Good ${time}, ${userName}`; // greeting에 시간에 따른 인사, 유저이름 입력
   };
 

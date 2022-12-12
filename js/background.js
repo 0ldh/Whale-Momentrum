@@ -73,6 +73,6 @@ bgdiv.appendChild(bgop); // background 뒤에 (요소 마지막 자식요소로)
     ㄴ  floor(): 소수점 버림, 정수 return
     ㄴ  round(): 소수점 반올림, 정수 retrun
     ㄴ  random() + a * b : a 이상 b 까지의 난수 생성 */
-// ? ES6 : `` 백틱 () => 화살표 함수 ?
+// ? ES6 : `` 백틱 , () => 화살표 함수 ?
 /* element.append : 가장 뒤에 추가
 element.prepend : 가장 위에 추가 */

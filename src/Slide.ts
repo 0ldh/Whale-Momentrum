@@ -9,22 +9,32 @@ interface TodoData {
   bool: boolean;
   text: string;
 }
+interface SlideElment {
+  slidebtnDiv: HTMLElement;
+  slideBtn1: HTMLButtonElement;
+  slideBtn2: HTMLButtonElement;
+  slideDiv: Element;
+  subBtn: HTMLButtonElement;
+  selectBool: boolean;
+}
 
-const slidebtnDiv = document.querySelector('.slidebtn') as HTMLElement;
-const slideBtn1 = slidebtnDiv.querySelector('.page1') as HTMLButtonElement;
-const slideBtn2 = slidebtnDiv.querySelector('.page2') as HTMLButtonElement;
-
-const slideDiv = document.querySelector('#slide_div')as Element;
-
-const subBtn = viewportSub.querySelector('.btn') as HTMLButtonElement;
-const selectBool = false;
+// eslint-disable-next-line import/prefer-default-export
+export const slide:SlideElment = {
+  slidebtnDiv: document.querySelector('.slidebtn') as HTMLElement,
+  slideBtn1: document.querySelector('.slidebtn .page1') as HTMLButtonElement,
+  slideBtn2: document.querySelector('.slidebtn .page2') as HTMLButtonElement,
+  slideDiv: document.querySelector('#slide_div')as Element,
+  subBtn: viewportSub.querySelector('.btn') as HTMLButtonElement,
+  selectBool: false,
+};
+// eslint-disable-next-line import/prefer-default-export
 
 const todosCountUpdate = ():void => {
   const savedToDos = JSON.parse(localStorage.getItem('todos') as string);
   let todosCount = 0;
 
-  subBtn.className = 'btn-todo';
-  subBtn.innerHTML = '<span>할 일 목록</span>';
+  slide.subBtn.className = 'btn-todo';
+  slide.subBtn.innerHTML = '<span>할 일 목록</span>';
 
   if (savedToDos !== null) {
     savedToDos.forEach((e:localStorageData) => {
@@ -32,7 +42,7 @@ const todosCountUpdate = ():void => {
         todosCount += 1;
       }
     });
-    subBtn.innerHTML += `<span>${todosCount}</span>`;
+    slide.subBtn.innerHTML += `<span>${todosCount}</span>`;
   }
 };
 
@@ -61,11 +71,11 @@ const page1ToDo = ():void => {
 };
 
 const loadPage = ():void => {
-  slideBtn1.disabled = true;
-  slideBtn1.style.background = 'hsla(0,0%,100%,1)';
-  slideBtn2.style.background = 'hsla(0,0%,100%,0.4)';
-  slideDiv.id = 'slide_div1';
-  slideDiv.innerHTML = `
+  slide.slideBtn1.disabled = true;
+  slide.slideBtn1.style.background = 'hsla(0,0%,100%,1)';
+  slide.slideBtn2.style.background = 'hsla(0,0%,100%,0.4)';
+  slide.slideDiv.id = 'slide_div1';
+  slide.slideDiv.innerHTML = `
     <div id="clock"></div>
     <form class="hidden" id="login-form">
     <p class="nameQ">What is your name?</p>

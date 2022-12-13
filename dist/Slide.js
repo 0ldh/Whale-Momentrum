@@ -3,27 +3,32 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.slide = void 0;
 const ViewportSub_1 = __importDefault(require("./ViewportSub"));
 const Clock_1 = __importDefault(require("./Clock"));
 const Greeting_1 = __importDefault(require("./Greeting"));
-const slidebtnDiv = document.querySelector('.slidebtn');
-const slideBtn1 = slidebtnDiv.querySelector('.page1');
-const slideBtn2 = slidebtnDiv.querySelector('.page2');
-const slideDiv = document.querySelector('#slide_div');
-const subBtn = ViewportSub_1.default.querySelector('.btn');
-const selectBool = false;
+// eslint-disable-next-line import/prefer-default-export
+exports.slide = {
+    slidebtnDiv: document.querySelector('.slidebtn'),
+    slideBtn1: document.querySelector('.slidebtn .page1'),
+    slideBtn2: document.querySelector('.slidebtn .page2'),
+    slideDiv: document.querySelector('#slide_div'),
+    subBtn: ViewportSub_1.default.querySelector('.btn'),
+    selectBool: false,
+};
+// eslint-disable-next-line import/prefer-default-export
 const todosCountUpdate = () => {
     const savedToDos = JSON.parse(localStorage.getItem('todos'));
     let todosCount = 0;
-    subBtn.className = 'btn-todo';
-    subBtn.innerHTML = '<span>할 일 목록</span>';
+    exports.slide.subBtn.className = 'btn-todo';
+    exports.slide.subBtn.innerHTML = '<span>할 일 목록</span>';
     if (savedToDos !== null) {
         savedToDos.forEach((e) => {
             if (e.bool === false) {
                 todosCount += 1;
             }
         });
-        subBtn.innerHTML += `<span>${todosCount}</span>`;
+        exports.slide.subBtn.innerHTML += `<span>${todosCount}</span>`;
     }
 };
 const page1ToDo = () => {
@@ -50,11 +55,11 @@ const page1ToDo = () => {
     }
 };
 const loadPage = () => {
-    slideBtn1.disabled = true;
-    slideBtn1.style.background = 'hsla(0,0%,100%,1)';
-    slideBtn2.style.background = 'hsla(0,0%,100%,0.4)';
-    slideDiv.id = 'slide_div1';
-    slideDiv.innerHTML = `
+    exports.slide.slideBtn1.disabled = true;
+    exports.slide.slideBtn1.style.background = 'hsla(0,0%,100%,1)';
+    exports.slide.slideBtn2.style.background = 'hsla(0,0%,100%,0.4)';
+    exports.slide.slideDiv.id = 'slide_div1';
+    exports.slide.slideDiv.innerHTML = `
     <div id="clock"></div>
     <form class="hidden" id="login-form">
     <p class="nameQ">What is your name?</p>

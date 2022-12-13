@@ -1,7 +1,8 @@
+import { slide } from './Slide';
+
 interface Todos {
   id: number;
   bool: boolean;
-
 }
 
 const importTodo = () => {
@@ -9,7 +10,7 @@ const importTodo = () => {
   const toDoInput = todoForm?.querySelector('input');
   const todoList = document.getElementById('todo-list');
 
-  const selectAllbtn = document.querySelector('.selectAllbtn');
+  const selectAllbtn = document.querySelector('.selectAllbtn') as HTMLButtonElement;
   const deleteBtn = document.querySelector('.deleteBtn');
 
   let todos:Todos[] = [];
@@ -19,35 +20,13 @@ const importTodo = () => {
     localStorage.setItem(todoKey, JSON.stringify(todos));
   };
 
-  const deleteTodo = (event:MouseEvent) => {
-    const li = event?.target.parentElement.parentElement;
-    li.className = 'spanout';
-    setTimeout(() => {
-      li.remove();
-      todos = todos.filter((toDo:Todos) => toDo.id !== Number(li.id));
-      saveToDos();
-    }, 800);
-  };
-  const updateTodo = (event) => {
-    const li = event.target.parentElement;
-    todos.forEach((e) => {
-      if (e.id === li.id) {
-        if (e.bool === true) {
-          e.bool = false;
-        } else {
-          e.bool = true;
-        }
-      }
-    });
-    saveToDos();
-  };
-
-  const handleSelectAll = (e) => {
+  const handleSelectAll = () => {
     const checkbox = document.querySelectorAll('li > input');
     const span = document.querySelectorAll('li > span');
-    if (!selectBool) { //* let selectBool = false; // 선택상태가 false(미선택) 상태라면
+    if (!slide.selectBool) {
       checkbox.forEach((v) => {
-        v.checked = true;
+        const todoCheckBox = v as HTMLInputElement;
+        todoCheckBox.checked = true;
       });
       todos.forEach((e) => {
         e.bool = true;
@@ -58,7 +37,8 @@ const importTodo = () => {
       selectAllbtn.value = '선택해제';
     } else {
       checkbox.forEach((v) => {
-        v.checked = false;
+        const todoCheckBox = v as HTMLInputElement;
+        todoCheckBox.checked = true;
       });
       todos.forEach((e) => {
         e.bool = false;
@@ -69,7 +49,8 @@ const importTodo = () => {
       selectAllbtn.value = '전체선택';
     }
     saveToDos();
-    selectBool = !selectBool;
+    // eslint-disable-next-line no-import-assign
+    slide.selectBool = !slide.selectBool;
   };
   //* 할 일 목록 제거 함수
   const handleDelete = () => {
@@ -113,7 +94,8 @@ const importTodo = () => {
     }
     //* 체크박스 확인하여 밑줄 긋는 함수
     const underLine = () => {
-      const span = li.childNodes[1];
+      // eslint-disable-next-line no-shadow
+      const span = li.childNodes[1] as HTMLElement;
       if (checkbox.checked) {
         span.className = 'underLine';
       } else {
@@ -126,8 +108,33 @@ const importTodo = () => {
     li.appendChild(btnDiv);
     todoList.appendChild(li);
 
-    btn.addEventListener('click', deleteTodo);
-    checkbox.addEventListener('click', updateTodo);
+    btn.addEventListener('click', (ev: Event) => {
+      const eventTarget = ev.target as Node;
+      const liChild = eventTarget.parentElement as HTMLElement;
+      const liDel = liChild.parentElement as HTMLElement;
+      liDel.className = 'spanout';
+      setTimeout(() => {
+        liDel.remove();
+        todos = todos.filter((toDo:Todos) => toDo.id !== Number(liDel.id));
+        saveToDos();
+      }, 800);
+    });
+
+    checkbox.addEventListener('click', (ev: Event) => {
+      const eventTarget = ev.target as Node;
+      const liChild = eventTarget.parentElement as HTMLElement;
+      const liUpdate = liChild.parentElement as HTMLElement;
+      todos.forEach((e) => {
+        if (e.id === Number(liUpdate.id)) {
+          if (e.bool === true) {
+            e.bool = false;
+          } else {
+            e.bool = true;
+          }
+        }
+      });
+      saveToDos();
+    });
     checkbox.addEventListener('click', underLine);
 
     //* X버튼 hover시 보이는 효과
@@ -176,6 +183,3 @@ const importTodo = () => {
   selectAllbtn.addEventListener('click', handleSelectAll);
   deleteBtn.addEventListener('click', handleDelete);
 };
-
-// ? fillter => 거름망,
-// ? JSON.stringify(x) => x를 그대로 문자열화 (ex, ["3","4"] => "["+"3"+","+"4"+"]")

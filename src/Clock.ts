@@ -1,4 +1,4 @@
-const importColock = (): void => {
+const importClock = (): void => {
   const clock:HTMLElement = document.querySelector('#clock') as HTMLElement;
   const getClock = (): void => {
     const date:Date = new Date();
@@ -12,3 +12,5 @@ const importColock = (): void => {
   getClock();
   setInterval(getClock, 1000);
 };
+
+export default importClock;

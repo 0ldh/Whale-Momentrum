@@ -1,5 +1,6 @@
 "use strict";
-const importColock = () => {
+Object.defineProperty(exports, "__esModule", { value: true });
+const importClock = () => {
     const clock = document.querySelector('#clock');
     const getClock = () => {
         const date = new Date();
@@ -11,3 +12,4 @@ const importColock = () => {
     getClock();
     setInterval(getClock, 1000);
 };
+exports.default = importClock;

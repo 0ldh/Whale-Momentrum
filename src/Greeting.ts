@@ -14,3 +14,5 @@ const importGreeting = (): void => {
     greeting.innerText = `Good ${times()}, ${userName}`;
   };
 };
+
+export default importGreeting;

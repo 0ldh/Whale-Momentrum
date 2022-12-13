@@ -44,6 +44,7 @@ module.exports = {
     semi: [1, 'always'],
     indent: 'off',
     '@typescript-eslint/indent': ['error', 2],
+    'no-plusplus': 0,
   },
   settings: {
     'import/resolver': {

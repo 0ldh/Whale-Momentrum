@@ -16,3 +16,4 @@ const importGreeting = () => {
         greeting.innerText = `Good ${(0, BackGround_1.default)()}, ${userName}`;
     };
 };
+exports.default = importGreeting;

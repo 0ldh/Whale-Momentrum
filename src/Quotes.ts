@@ -1,4 +1,9 @@
-const quotes:object[] = [
+interface Quotes {
+  quote:string;
+  author:string;
+}
+
+const quotes:Quotes[] = [
   {
     quote: 'The way to get started is to quit talking and begin doing.',
     author: 'Walt Disney',
@@ -37,5 +42,5 @@ const author = document.querySelector('#quote span:last-child') as HTMLElement;
 
 const todayQuote = quotes[Math.floor(Math.random() * quotes.length)];
 
-// quote.innerText = todayQuote.quote;
-// author.innerText = todayQuote.author;
+quote.innerText = todayQuote.quote;
+author.innerText = todayQuote.author;

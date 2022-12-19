@@ -1,5 +1,5 @@
 "use strict";
-var quotes = [
+const quotes = [
     {
         quote: 'The way to get started is to quit talking and begin doing.',
         author: 'Walt Disney',
@@ -32,8 +32,8 @@ var quotes = [
         author: 'Sheda Savage',
     },
 ];
-var quote = document.querySelector('#quote span:first-child');
-var author = document.querySelector('#quote span:last-child');
-var todayQuote = quotes[Math.floor(Math.random() * quotes.length)];
+const quote = document.querySelector('#quote span:first-child');
+const author = document.querySelector('#quote span:last-child');
+const todayQuote = quotes[Math.floor(Math.random() * quotes.length)];
 quote.innerText = todayQuote.quote;
 author.innerText = todayQuote.author;

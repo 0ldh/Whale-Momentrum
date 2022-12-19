@@ -1,4 +1,4 @@
-var images = {
+const images = {
     morning: [
         // 아침 배경
         'morning1.jpeg',
@@ -21,30 +21,25 @@ var images = {
         'evening3.jpeg',
     ],
 };
-var bgdiv = document.querySelector('.bgdiv');
-var time;
-var times = function () {
-    var dateHours = new Date();
+const bgdiv = document.querySelector('.bgdiv');
+const times = () => {
+    const dateHours = new Date();
     if (dateHours.getHours() >= 6 && dateHours.getHours() < 12) {
-        time = 'Morning';
         return images.morning[Math.floor(Math.random() * images.morning.length)];
     }
     if (dateHours.getHours() >= 12 && dateHours.getHours() < 15) {
-        time = 'Noon';
         return images.noon[Math.floor(Math.random() * images.noon.length)];
     }
     if (dateHours.getHours() >= 15 && dateHours.getHours() < 20) {
-        time = 'Afternoon';
         return images.afternoon[Math.floor(Math.random() * images.afternoon.length)];
     }
-    time = 'Evening';
     return images.evening[Math.floor(Math.random() * images.evening.length)];
 };
-var img = document.createElement('img');
-img.src = "img/".concat(times());
+const img = document.createElement('img');
+img.src = `img/${times()}`;
 img.className = 'bgimg';
 bgdiv === null || bgdiv === void 0 ? void 0 : bgdiv.appendChild(img);
-var bgOpacity = document.createElement('div');
+const bgOpacity = document.createElement('div');
 bgOpacity.className = 'bgop';
 bgdiv === null || bgdiv === void 0 ? void 0 : bgdiv.appendChild(bgOpacity);
 export default times;

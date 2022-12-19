@@ -3,7 +3,9 @@
   "version": "1.0.0",
   "description": "> 스타일은 CSS, HTMl은 HTMl, JS는 JS",
   "main": ".eslintrc.js",
-  "devDependencies": {},
+  "devDependencies": {
+    "webpack-cli": "^5.0.1"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },

@@ -31,27 +31,21 @@ const images: Images = {
 
 const bgdiv = document.querySelector('.bgdiv');
 
-let time: string;
-
 const times = ():string => {
   const dateHours:Date = new Date();
   if (dateHours.getHours() >= 6 && dateHours.getHours() < 12) {
-    time = 'Morning';
     return images.morning[
       Math.floor(Math.random() * images.morning.length)
     ];
   }
   if (dateHours.getHours() >= 12 && dateHours.getHours() < 15) {
-    time = 'Noon';
     return images.noon[Math.floor(Math.random() * images.noon.length)];
   }
   if (dateHours.getHours() >= 15 && dateHours.getHours() < 20) {
-    time = 'Afternoon';
     return images.afternoon[
       Math.floor(Math.random() * images.afternoon.length)
     ];
   }
-  time = 'Evening';
   return images.evening[Math.floor(Math.random() * images.evening.length)];
 };
 

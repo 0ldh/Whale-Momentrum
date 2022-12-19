@@ -1,40 +1,40 @@
 import { slide } from './Slide';
-var importTodo = function () {
-    var todoForm = document.getElementById('todo-form');
-    var toDoInput = todoForm === null || todoForm === void 0 ? void 0 : todoForm.querySelector('input');
-    var todoList = document.getElementById('todo-list');
-    var selectAllbtn = document.querySelector('.selectAllbtn');
-    var deleteBtn = document.querySelector('.deleteBtn');
-    var todos = [];
-    var todoKey = 'todos';
-    var saveToDos = function () {
+const importTodo = () => {
+    const todoForm = document.getElementById('todo-form');
+    const toDoInput = todoForm === null || todoForm === void 0 ? void 0 : todoForm.querySelector('input');
+    const todoList = document.getElementById('todo-list');
+    const selectAllbtn = document.querySelector('.selectAllbtn');
+    const deleteBtn = document.querySelector('.deleteBtn');
+    let todos = [];
+    const todoKey = 'todos';
+    const saveToDos = () => {
         localStorage.setItem(todoKey, JSON.stringify(todos));
     };
-    var handleSelectAll = function () {
-        var checkbox = document.querySelectorAll('li > input');
-        var span = document.querySelectorAll('li > span');
+    const handleSelectAll = () => {
+        const checkbox = document.querySelectorAll('li > input');
+        const span = document.querySelectorAll('li > span');
         if (!slide.selectBool) {
-            checkbox.forEach(function (v) {
-                var todoCheckBox = v;
+            checkbox.forEach((v) => {
+                const todoCheckBox = v;
                 todoCheckBox.checked = true;
             });
-            todos.forEach(function (e) {
+            todos.forEach((e) => {
                 e.bool = true;
             });
-            span.forEach(function (e) {
+            span.forEach((e) => {
                 e.className = 'underLine';
             });
             selectAllbtn.value = '선택해제';
         }
         else {
-            checkbox.forEach(function (v) {
-                var todoCheckBox = v;
+            checkbox.forEach((v) => {
+                const todoCheckBox = v;
                 todoCheckBox.checked = true;
             });
-            todos.forEach(function (e) {
+            todos.forEach((e) => {
                 e.bool = false;
             });
-            span.forEach(function (e) {
+            span.forEach((e) => {
                 e.className = '';
             });
             selectAllbtn.value = '전체선택';
@@ -43,32 +43,32 @@ var importTodo = function () {
         // eslint-disable-next-line no-import-assign
         slide.selectBool = !slide.selectBool;
     };
-    var handleDelete = function () {
-        var checkbox = document.querySelectorAll('li > input');
-        checkbox.forEach(function (e) {
-            var todoCheckBox = e;
+    const handleDelete = () => {
+        const checkbox = document.querySelectorAll('li > input');
+        checkbox.forEach((e) => {
+            const todoCheckBox = e;
             if (todoCheckBox.checked) {
-                var li_1 = todoCheckBox.parentElement;
-                li_1.className = 'spanout';
-                setTimeout(function () {
-                    li_1.remove();
-                    todos = todos.filter(function (toDo) { return toDo.id !== Number(li_1.id); });
+                const li = todoCheckBox.parentElement;
+                li.className = 'spanout';
+                setTimeout(() => {
+                    li.remove();
+                    todos = todos.filter((toDo) => toDo.id !== Number(li.id));
                     saveToDos();
                 }, 800);
             }
         });
     };
-    var patinTodo = function (newTodo) {
-        var li = document.createElement('li');
+    const patinTodo = (newTodo) => {
+        const li = document.createElement('li');
         li.id = String(newTodo.id);
-        var span = document.createElement('span');
+        const span = document.createElement('span');
         span.innerText = newTodo.text;
-        var btnDiv = document.createElement('div');
+        const btnDiv = document.createElement('div');
         btnDiv.className = 'xBtn';
-        var btn = document.createElement('a');
+        const btn = document.createElement('a');
         btn.innerText = '❌';
         btnDiv.appendChild(btn);
-        var checkbox = document.createElement('input');
+        const checkbox = document.createElement('input');
         checkbox.type = 'checkbox';
         checkbox.checked = newTodo.bool;
         if (newTodo.bool) {
@@ -77,9 +77,9 @@ var importTodo = function () {
         else {
             span.className = '';
         }
-        var underLine = function () {
+        const underLine = () => {
             // eslint-disable-next-line no-shadow
-            var span = li.childNodes[1];
+            const span = li.childNodes[1];
             if (checkbox.checked) {
                 span.className = 'underLine';
             }
@@ -91,22 +91,22 @@ var importTodo = function () {
         li.appendChild(span);
         li.appendChild(btnDiv);
         todoList.appendChild(li);
-        btn.addEventListener('click', function (ev) {
-            var eventTarget = ev.target;
-            var liChild = eventTarget.parentElement;
-            var liDel = liChild.parentElement;
+        btn.addEventListener('click', (ev) => {
+            const eventTarget = ev.target;
+            const liChild = eventTarget.parentElement;
+            const liDel = liChild.parentElement;
             liDel.className = 'spanout';
-            setTimeout(function () {
+            setTimeout(() => {
                 liDel.remove();
-                todos = todos.filter(function (toDo) { return toDo.id !== Number(liDel.id); });
+                todos = todos.filter((toDo) => toDo.id !== Number(liDel.id));
                 saveToDos();
             }, 800);
         });
-        checkbox.addEventListener('click', function (ev) {
-            var eventTarget = ev.target;
-            var liChild = eventTarget.parentElement;
-            var liUpdate = liChild.parentElement;
-            todos.forEach(function (e) {
+        checkbox.addEventListener('click', (ev) => {
+            const eventTarget = ev.target;
+            const liChild = eventTarget.parentElement;
+            const liUpdate = liChild.parentElement;
+            todos.forEach((e) => {
                 if (e.id === Number(liUpdate.id)) {
                     if (e.bool === true) {
                         e.bool = false;
@@ -119,28 +119,28 @@ var importTodo = function () {
             saveToDos();
         });
         checkbox.addEventListener('click', underLine);
-        li.addEventListener('mouseenter', function () {
+        li.addEventListener('mouseenter', () => {
             console.log('마우스 들어옴');
             btnDiv.style.display = 'block';
         });
-        li.addEventListener('mouseleave', function () {
+        li.addEventListener('mouseleave', () => {
             btnDiv.style.display = 'none';
         });
     };
-    var handleToDoSubmit = function (event) {
+    const handleToDoSubmit = (event) => {
         event.preventDefault();
-        var newTodo = toDoInput.value;
+        const newTodo = toDoInput.value;
         if (newTodo === '') {
             slide.slideDiv.className = 'warningMsg';
             todoForm.style.boxShadow = 'inset 0 0 0 1.5px #ff003e, 0 -10px 10px #fff';
-            setTimeout(function () {
+            setTimeout(() => {
                 slide.slideDiv.className = '';
             }, 1000);
         }
         else {
             toDoInput.value = '';
             todoForm.style.boxShadow = 'inset 0 0 0 1.5px #05c3a7, 0 -10px 10px transparent';
-            var objectTodo = {
+            const objectTodo = {
                 id: Date.now(),
                 text: newTodo,
                 bool: false,
@@ -150,9 +150,9 @@ var importTodo = function () {
             saveToDos();
         }
     };
-    var savedToDos = localStorage.getItem(todoKey);
+    const savedToDos = localStorage.getItem(todoKey);
     if (savedToDos !== null) {
-        var parseTodos = JSON.parse(savedToDos);
+        const parseTodos = JSON.parse(savedToDos);
         todos = parseTodos;
         parseTodos.forEach(patinTodo);
     }

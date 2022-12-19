@@ -18,5 +18,3 @@ const importClock = () => {
 
 // ? padStart(x,y), padEnd(x,y) => String 자료형의 길이수를 x로 바꾸고 자리가 비어있을 경우 y로 채운다
 // ? setInterval(function, 1000) => 1초마다 함수(function) 실행 (1초는 1000)
-
-export default importClock;

@@ -32,6 +32,7 @@ const images: Images = {
 const bgdiv = document.querySelector('.bgdiv');
 
 let time: string;
+
 const times = ():string => {
   const dateHours:Date = new Date();
   if (dateHours.getHours() >= 6 && dateHours.getHours() < 12) {

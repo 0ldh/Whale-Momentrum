@@ -1,28 +1,25 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.viewportSub = void 0;
-const API_KEY = 'cb91bf2e9f480fdb20114b3a09adb6db';
-exports.viewportSub = document.querySelector('.viewport-sub');
-const weatherDiv = exports.viewportSub.querySelector('.weather_icon');
-const docTemp = exports.viewportSub.querySelector('span:nth-child(2)');
-const docLocat = exports.viewportSub.querySelector('span:nth-child(3)');
-let weatherMain;
-const onGeoError = () => {
+var API_KEY = 'cb91bf2e9f480fdb20114b3a09adb6db';
+export var viewportSub = document.querySelector('.viewport-sub');
+var weatherDiv = viewportSub.querySelector('.weather_icon');
+var docTemp = viewportSub.querySelector('span:nth-child(2)');
+var docLocat = viewportSub.querySelector('span:nth-child(3)');
+var weatherMain;
+var onGeoError = function () {
     alert('지역을 찾을 수 없습니다');
 };
-const onGeoOk = (getCurrentPosition) => {
-    const lat = getCurrentPosition.coords.latitude;
-    const lnt = getCurrentPosition.coords.longitude;
-    const url = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lnt}&appid=${API_KEY}&units=metric`;
+var onGeoOk = function (getCurrentPosition) {
+    var lat = getCurrentPosition.coords.latitude;
+    var lnt = getCurrentPosition.coords.longitude;
+    var url = "https://api.openweathermap.org/data/2.5/weather?lat=".concat(lat, "&lon=").concat(lnt, "&appid=").concat(API_KEY, "&units=metric");
     fetch(url)
-        .then((response) => response.json())
-        .then((data) => {
-        const { name } = data;
+        .then(function (response) { return response.json(); })
+        .then(function (data) {
+        var name = data.name;
         weatherMain = data
             .weather[0]
             .main;
-        const temp = Math.floor(data.main.temp);
-        let weatherIcon;
+        var temp = Math.floor(data.main.temp);
+        var weatherIcon;
         if (weatherMain === 'Clouds') {
             weatherIcon = '<i class="fa-solid fa-cloud fa-3x"></i>';
         }
@@ -37,15 +34,15 @@ const onGeoOk = (getCurrentPosition) => {
         }
         weatherDiv.innerHTML = weatherIcon;
         docLocat.innerText = name;
-        docTemp.innerText = `${temp}'C`;
+        docTemp.innerText = "".concat(temp, "'C");
         console.log(name, temp, weatherMain);
         console.log('url', url);
     });
 };
-const weather = exports.viewportSub.querySelector('.weather');
-weather.addEventListener('click', () => {
+var weather = viewportSub.querySelector('.weather');
+weather.addEventListener('click', function () {
     // eslint-disable-next-line no-restricted-globals
     location.href = 'https://google.com/search?q=날씨';
 });
 navigator.geolocation.getCurrentPosition(onGeoOk, onGeoError);
-exports.default = exports.viewportSub;
+export default viewportSub;

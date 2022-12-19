@@ -4,14 +4,19 @@ interface Todos {
   id: number;
   bool: boolean;
 }
+interface NewTodo {
+  id: number;
+  text: string;
+  bool: boolean;
+}
 
 const importTodo = () => {
-  const todoForm = document.getElementById('todo-form');
-  const toDoInput = todoForm?.querySelector('input');
-  const todoList = document.getElementById('todo-list');
+  const todoForm = document.getElementById('todo-form') as HTMLElement;
+  const toDoInput = todoForm?.querySelector('input') as HTMLInputElement;
+  const todoList = document.getElementById('todo-list') as HTMLElement;
 
   const selectAllbtn = document.querySelector('.selectAllbtn') as HTMLButtonElement;
-  const deleteBtn = document.querySelector('.deleteBtn');
+  const deleteBtn = document.querySelector('.deleteBtn') as HTMLButtonElement;
 
   let todos:Todos[] = [];
   const todoKey = 'todos';
@@ -52,12 +57,13 @@ const importTodo = () => {
     // eslint-disable-next-line no-import-assign
     slide.selectBool = !slide.selectBool;
   };
-  //* 할 일 목록 제거 함수
+
   const handleDelete = () => {
     const checkbox = document.querySelectorAll('li > input');
     checkbox.forEach((e) => {
-      if (e.checked) {
-        const li = e.parentElement;
+      const todoCheckBox = e as HTMLInputElement;
+      if (todoCheckBox.checked) {
+        const li = todoCheckBox.parentElement as HTMLLIElement;
         li.className = 'spanout';
         setTimeout(() => {
           li.remove();
@@ -68,10 +74,9 @@ const importTodo = () => {
     });
   };
 
-  //* 할 일 목록 그리는 함수
-  const patinTodo = (newTodo) => {
+  const patinTodo = (newTodo: NewTodo) => {
     const li = document.createElement('li');
-    li.id = newTodo.id;
+    li.id = String(newTodo.id);
 
     const span = document.createElement('span');
     span.innerText = newTodo.text;
@@ -92,7 +97,7 @@ const importTodo = () => {
     } else {
       span.className = '';
     }
-    //* 체크박스 확인하여 밑줄 긋는 함수
+
     const underLine = () => {
       // eslint-disable-next-line no-shadow
       const span = li.childNodes[1] as HTMLElement;
@@ -137,7 +142,6 @@ const importTodo = () => {
     });
     checkbox.addEventListener('click', underLine);
 
-    //* X버튼 hover시 보이는 효과
     li.addEventListener('mouseenter', () => {
       console.log('마우스 들어옴');
       btnDiv.style.display = 'block';
@@ -147,15 +151,14 @@ const importTodo = () => {
     });
   };
 
-  // * todo form에 할 일 입력 함수
-  const handleToDoSubmit = (event) => {
+  const handleToDoSubmit = (event: Event) => {
     event.preventDefault();
     const newTodo = toDoInput.value;
     if (newTodo === '') {
-      slideDiv.className = 'warningMsg';
+      slide.slideDiv.className = 'warningMsg';
       todoForm.style.boxShadow = 'inset 0 0 0 1.5px #ff003e, 0 -10px 10px #fff';
       setTimeout(() => {
-        slideDiv.className = '';
+        slide.slideDiv.className = '';
       }, 1000);
     } else {
       toDoInput.value = '';
@@ -171,7 +174,6 @@ const importTodo = () => {
     }
   };
 
-  //* 할 일 목록이 비어있지 않다면 할 일 목록을 todoList에 그린다는 조건문
   const savedToDos = localStorage.getItem(todoKey);
   if (savedToDos !== null) {
     const parseTodos = JSON.parse(savedToDos);

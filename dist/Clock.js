@@ -1,15 +1,13 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-const importClock = () => {
-    const clock = document.querySelector('#clock');
-    const getClock = () => {
-        const date = new Date();
-        const hours = String(date.getHours()).padStart(2, '0');
-        const minutes = String(date.getMinutes()).padStart(2, '0');
-        const seconds = String(date.getSeconds()).padStart(2, '0');
-        clock.innerText = `${hours}:${minutes}:${seconds}`;
+var importClock = function () {
+    var clock = document.querySelector('#clock');
+    var getClock = function () {
+        var date = new Date();
+        var hours = String(date.getHours());
+        var minutes = String(date.getMinutes());
+        var seconds = String(date.getSeconds());
+        clock.innerText = "".concat(hours, ":").concat(minutes, ":").concat(seconds);
     };
     getClock();
     setInterval(getClock, 1000);
 };
-exports.default = importClock;
+export default importClock;

@@ -1,6 +1,4 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-const images = {
+var images = {
     morning: [
         // 아침 배경
         'morning1.jpeg',
@@ -23,10 +21,10 @@ const images = {
         'evening3.jpeg',
     ],
 };
-const bgdiv = document.querySelector('.bgdiv');
-let time;
-const times = () => {
-    const dateHours = new Date();
+var bgdiv = document.querySelector('.bgdiv');
+var time;
+var times = function () {
+    var dateHours = new Date();
     if (dateHours.getHours() >= 6 && dateHours.getHours() < 12) {
         time = 'Morning';
         return images.morning[Math.floor(Math.random() * images.morning.length)];
@@ -42,11 +40,11 @@ const times = () => {
     time = 'Evening';
     return images.evening[Math.floor(Math.random() * images.evening.length)];
 };
-const img = document.createElement('img');
-img.src = `img/${times()}`;
+var img = document.createElement('img');
+img.src = "img/".concat(times());
 img.className = 'bgimg';
-bgdiv?.appendChild(img);
-const bgOpacity = document.createElement('div');
+bgdiv === null || bgdiv === void 0 ? void 0 : bgdiv.appendChild(img);
+var bgOpacity = document.createElement('div');
 bgOpacity.className = 'bgop';
-bgdiv?.appendChild(bgOpacity);
-exports.default = times;
+bgdiv === null || bgdiv === void 0 ? void 0 : bgdiv.appendChild(bgOpacity);
+export default times;

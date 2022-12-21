@@ -38,7 +38,7 @@ module.exports = {
     'react/prop-types': 'off', // PropTypes를 사용한 유형 검사 안 함
     'react/react-in-jsx-scope': 0, // import 'React' from 'react' 생략할 수 있게
     'react/default-props-match-prop-types': 0,
-    'react/require-default-props': 0, // Optional Paramter에 defaultProps 선언 안 함
+    'react/require-default-props': 0, // Optional Parameter에 defaultProps 선언 안 함
     '@typescript-eslint/semi': 'error', // ts type에서 중괄호 끝 세미콜론 추가
     '@typescript-eslint/member-delimiter-style': 'error', // ts type 객체 프로퍼티 타입정의 마지막 세미콜론 추가
     '@typescript-eslint/no-non-null-assertion': 0, // 단언 연산자 사용

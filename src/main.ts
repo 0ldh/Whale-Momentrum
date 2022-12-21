@@ -1,9 +1,10 @@
 import './css/style.css';
 import typescriptLogo from './typescript.svg';
 import setupCounter from './counter';
+import BackGround from './BackGround';
 
 document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
-  <div>
+  <div id='wrapper'>
     <a href="https://vitejs.dev" target="_blank">
       <img src="/vite.svg" class="logo" alt="Vite logo" />
     </a>
@@ -21,3 +22,4 @@ document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
 `;
 
 setupCounter(document.querySelector<HTMLButtonElement>('#counter')!);
+BackGround(document.querySelector<HTMLDivElement>('#wrapper')!);

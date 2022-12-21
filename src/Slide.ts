@@ -13,4 +13,8 @@ export default function Slide(element: HTMLDivElement, slideBtn:HTMLButtonElemen
 
   ele.append(page0);
   ele.append(page1);
+
+  btn.addEventListener('click', (e:MouseEvent) => {
+    console.log(e);
+  });
 }

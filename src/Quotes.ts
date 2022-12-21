@@ -1,6 +1,6 @@
 interface Quotes {
-    quote:string;
-    author: string;
+  quote:string;
+  author: string;
 }
 
 const quotes:Quotes[] = [ // 명언집 ( type : Object)
@@ -37,7 +37,7 @@ const quotes:Quotes[] = [ // 명언집 ( type : Object)
   },
 ];
 
-export default function Quotes(element: HTMLDivElement): void {
+export default function Quote(element: HTMLDivElement): void {
   const quote = document.createElement('span');
-  const author = document.createElement("span")
+  const author = document.createElement('span');
 }

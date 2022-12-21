@@ -34,3 +34,9 @@ Slide(
   document.querySelector<HTMLButtonElement>('#slideBtn')!,
 );
 Todo(document.querySelector<HTMLDivElement>('#page1')!);
+
+/**
+ *  * localSotrage에서 불러와서 그려야함 paintTodo(Todo.ts)에 추가
+ *  * page1에 Todo 추가 하고 main에서 Todo 지우기
+ * first
+ */

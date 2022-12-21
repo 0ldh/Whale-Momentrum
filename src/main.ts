@@ -2,8 +2,8 @@ import './css/style.css';
 import typescriptLogo from './typescript.svg';
 import setupCounter from './counter';
 import BackGround from './BackGround';
-import Clock from './Clock';
-import Quote from './Quotes';
+import Slide from './Slide';
+import Page0 from './Page0';
 
 document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
   <div id='wrapper'>
@@ -17,15 +17,18 @@ document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
     <div class="card">
       <button id="counter" type="button"></button>
     </div>
-    <p class="read-the-docs">
-      Click on the Vite and TypeScript logos to learn more
-    </p>
-    <div id='clock'></div>
-    <div id='quote'></div>
+    <div id='slide'>
+      <div id='page0'></div>
+      <div id='page1'></div>
+    </div>
+    <button type='button' id='slideBtn'></button>
   </div>
 `;
 
 setupCounter(document.querySelector<HTMLButtonElement>('#counter')!);
 BackGround(document.querySelector<HTMLDivElement>('#wrapper')!);
-Clock(document.querySelector<HTMLDivElement>('#clock')!);
-Quote(document.querySelector<HTMLDivElement>('#quote')!);
+Page0(document.querySelector('#page0')!);
+Slide(
+  document.querySelector<HTMLDivElement>('#slide')!,
+  document.querySelector<HTMLButtonElement>('#slideBtn')!,
+);

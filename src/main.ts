@@ -3,6 +3,7 @@ import typescriptLogo from './typescript.svg';
 import setupCounter from './counter';
 import BackGround from './BackGround';
 import Clock from './Clock';
+import Quote from './Quotes';
 
 document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
   <div id='wrapper'>
@@ -20,9 +21,11 @@ document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
       Click on the Vite and TypeScript logos to learn more
     </p>
     <div id='clock'></div>
+    <div id='quote'></div>
   </div>
 `;
 
 setupCounter(document.querySelector<HTMLButtonElement>('#counter')!);
 BackGround(document.querySelector<HTMLDivElement>('#wrapper')!);
 Clock(document.querySelector<HTMLDivElement>('#clock')!);
+Quote(document.querySelector<HTMLDivElement>('#quote')!);

@@ -30,13 +30,10 @@ export default function Todo(element: HTMLDivElement): void {
     _todos.forEach((e) => {
       const todo = document.createElement('div');
       const todoText = document.createElement('div');
-      const todoId = document.createElement('div');
 
       todoText.innerText = e.text;
-      todoId.innerText = String(e.id);
 
       todo.append(todoText);
-      todo.append(todoId);
 
       todoList.append(todo);
     });
@@ -53,7 +50,6 @@ export default function Todo(element: HTMLDivElement): void {
       };
       todos.push(objectTodo);
       saveTodos(newTodo);
-      paintTodo(todos);
     }
   };
 
@@ -62,5 +58,9 @@ export default function Todo(element: HTMLDivElement): void {
       console.log('first');
       addTodo(e);
     }
+  });
+  window.addEventListener('load', (e: Event):void => {
+    console.log(e);
+    paintTodo(todos);
   });
 }

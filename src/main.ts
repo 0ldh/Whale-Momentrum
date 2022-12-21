@@ -2,6 +2,7 @@ import './css/style.css';
 import typescriptLogo from './typescript.svg';
 import setupCounter from './counter';
 import BackGround from './BackGround';
+import Clock from './Clock';
 
 document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
   <div id='wrapper'>
@@ -18,8 +19,10 @@ document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
     <p class="read-the-docs">
       Click on the Vite and TypeScript logos to learn more
     </p>
+    <div id='clock'></div>
   </div>
 `;
 
 setupCounter(document.querySelector<HTMLButtonElement>('#counter')!);
 BackGround(document.querySelector<HTMLDivElement>('#wrapper')!);
+Clock(document.querySelector<HTMLDivElement>('#clock')!);

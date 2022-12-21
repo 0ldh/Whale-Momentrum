@@ -4,6 +4,7 @@ import setupCounter from './counter';
 import BackGround from './BackGround';
 import Slide from './Slide';
 import Page0 from './Page0';
+import Todo from './Todo';
 
 document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
   <div id='wrapper'>
@@ -32,3 +33,4 @@ Slide(
   document.querySelector<HTMLDivElement>('#slide')!,
   document.querySelector<HTMLButtonElement>('#slideBtn')!,
 );
+Todo(document.querySelector<HTMLDivElement>('#page1')!);

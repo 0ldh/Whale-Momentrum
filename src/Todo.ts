@@ -143,7 +143,6 @@ const importTodo = () => {
     checkbox.addEventListener('click', underLine);
 
     li.addEventListener('mouseenter', () => {
-      console.log('마우스 들어옴');
       btnDiv.style.display = 'block';
     });
     li.addEventListener('mouseleave', () => {

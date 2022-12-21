@@ -26,11 +26,11 @@ const quotes:Quotes[] = [
     quote: 'You only live once, but if you do it right, once is enough.',
     author: 'Mae West',
   }, {
-    quote: 'Never go on trips with anyone you do ntot love.',
-    author: 'Hemmingway',
+    quote: 'Never go on trips with anyone you do not love.',
+    author: 'Hemingway',
   }, {
-    quote: 'We wander for distraction, but we travel for fulfilment.',
-    author: 'Hilaire Belloc',
+    quote: 'We wander for distraction, but we travel for fulfillment.',
+    author: 'Hilary Belloc',
   }, {
     quote: 'Travel expands the mind and fills the gap.',
     author: 'Sheda Savage',

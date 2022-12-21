@@ -9,7 +9,7 @@ interface TodoData {
   bool: boolean;
   text: string;
 }
-interface SlideElment {
+interface SlideElement {
   slidebtnDiv: HTMLElement;
   slideBtn1: HTMLButtonElement;
   slideBtn2: HTMLButtonElement;
@@ -19,7 +19,7 @@ interface SlideElment {
 }
 
 // eslint-disable-next-line import/prefer-default-export
-export const slide:SlideElment = {
+export const slide:SlideElement = {
   slidebtnDiv: document.querySelector('.slidebtn') as HTMLElement,
   slideBtn1: document.querySelector('.slidebtn .page1') as HTMLButtonElement,
   slideBtn2: document.querySelector('.slidebtn .page2') as HTMLButtonElement,

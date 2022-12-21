@@ -1,23 +1,15 @@
 {
-  "name": "whale-momentrum_html5_css3_js",
-  "version": "1.0.0",
-  "description": "> 스타일은 CSS, HTMl은 HTMl, JS는 JS",
-  "main": ".eslintrc.js",
-  "devDependencies": {
-    "webpack-cli": "^5.0.1"
-  },
+  "name": "whale-vite",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "vite",
+    "build": "tsc && vite build",
+    "preview": "vite preview"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/bb8dd/Whale-Momentrum_HTML5_CSS3_JS.git"
-  },
-  "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/bb8dd/Whale-Momentrum_HTML5_CSS3_JS/issues"
-  },
-  "homepage": "https://github.com/bb8dd/Whale-Momentrum_HTML5_CSS3_JS#readme",
-  "dependencies": {}
+  "devDependencies": {
+    "typescript": "^4.9.3",
+    "vite": "^4.0.0"
+  }
 }

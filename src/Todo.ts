@@ -1,3 +1,5 @@
+import feather from 'feather-icons';
+
 interface Todos {
   id: number;
   text: string;
@@ -26,6 +28,7 @@ export default function Todo(element: HTMLDivElement): void {
   const saveTodos = (_newTodo: string):void => {
     localStorage.setItem(todoKey, JSON.stringify(todos));
   };
+
   const paintTodo = (_todos: Todos[]):void => {
     _todos.forEach((e) => {
       const todo = document.createElement('div');
@@ -43,13 +46,14 @@ export default function Todo(element: HTMLDivElement): void {
     const newTodo:string = todoInput.value;
     if (newTodo) {
       todoInput.value = '';
-      const objectTodo = {
+      const objectTodo = [{
         id: Date.now(),
         text: newTodo,
         bool: false,
-      };
-      todos.push(objectTodo);
+      }];
+      todos.push(objectTodo[0]);
       saveTodos(newTodo);
+      paintTodo(objectTodo);
     }
   };
 
@@ -59,8 +63,10 @@ export default function Todo(element: HTMLDivElement): void {
       addTodo(e);
     }
   });
-  window.addEventListener('load', (e: Event):void => {
-    console.log(e);
+  window.addEventListener('load', ():void => {
+    const savedTodos = localStorage.getItem(todoKey) as string;
+    const parseTodos = JSON.parse(savedTodos);
+    parseTodos.forEach((e: Todos) => todos.push(e));
     paintTodo(todos);
   });
 }

@@ -32,7 +32,6 @@ export default function Todo(element: HTMLDivElement): void {
   };
   const deleteTodo = (delTargetId: string, delTargetEle: HTMLElement):void => {
     delTargetEle.remove();
-    console.log(delTargetId);
     // console.log(todos);
     todos = todos.filter((e) => e.id !== Number(delTargetId));
     saveTodos(todos);
@@ -99,7 +98,6 @@ export default function Todo(element: HTMLDivElement): void {
   window.addEventListener('click', (e:MouseEvent):void => {
     const { target } = e;
     if (target instanceof Element) {
-      console.log(target);
       if (target.tagName === 'line') {
         deleteTodo(
           target.parentElement!.id,

@@ -30,7 +30,8 @@ export default function Todo(element: HTMLDivElement): void {
   const saveTodos = (_todos:Todos[]):void => {
     localStorage.setItem(todoKey, JSON.stringify(_todos));
   };
-  const deleteTodo = (delTargetId: string):void => {
+  const deleteTodo = (delTargetId: string, delTargetEle: HTMLElement):void => {
+    delTargetEle.remove();
     console.log(delTargetId);
     // console.log(todos);
     todos = todos.filter((e) => e.id !== Number(delTargetId));
@@ -43,6 +44,7 @@ export default function Todo(element: HTMLDivElement): void {
       const todoText = document.createElement('div');
       const delTodoBtn = document.createElement('button');
 
+      todo.id = String(e.id);
       todoText.innerText = e.text;
       delTodoBtn.className = 'delTodoBtn';
       delTodoBtn.id = String(e.id);
@@ -95,12 +97,19 @@ export default function Todo(element: HTMLDivElement): void {
     }
   });
   window.addEventListener('click', (e:MouseEvent):void => {
-    if (e.target instanceof Element) {
-      console.log(e.target);
-      if (e.target.tagName === 'line') {
-        deleteTodo(e.target.parentElement!.id);
-      } else if (e.target.classList.contains('delTodoBtn')) {
-        deleteTodo(e.target.id);
+    const { target } = e;
+    if (target instanceof Element) {
+      console.log(target);
+      if (target.tagName === 'line') {
+        deleteTodo(
+          target.parentElement!.id,
+          document.getElementById(target.parentElement!.id)!,
+        );
+      } else if (target.classList.contains('delTodoBtn')) {
+        deleteTodo(
+          target.id,
+          document.getElementById(target.id)!,
+        );
       }
     }
   });

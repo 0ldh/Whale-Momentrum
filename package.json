@@ -9,6 +9,7 @@
     "preview": "vite preview"
   },
   "devDependencies": {
+    "@types/feather-icons": "^4.29.1",
     "@typescript-eslint/eslint-plugin": "^5.47.0",
     "eslint": "^8.30.0",
     "eslint-config-standard-with-typescript": "^24.0.0",
@@ -17,5 +18,8 @@
     "eslint-plugin-promise": "^6.1.1",
     "typescript": "^4.9.4",
     "vite": "^4.0.0"
+  },
+  "dependencies": {
+    "feather-icons": "^4.29.0"
   }
 }

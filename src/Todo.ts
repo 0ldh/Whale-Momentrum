@@ -29,19 +29,35 @@ export default function Todo(element: HTMLDivElement): void {
   const saveTodos = ():void => {
     localStorage.setItem(todoKey, JSON.stringify(todos));
   };
+  const deleteTodo = ():void => {
+    saveTodos();
+  };
 
   const paintTodo = (_todos: Todos[]):void => {
     _todos.forEach((e) => {
       const todo = document.createElement('div');
       const todoText = document.createElement('div');
-      todoText.innerText = e.text;
+      const delTodoBtn = document.createElement('button');
 
+      todoText.innerText = e.text;
+      delTodoBtn.id = 'delTodoBtn';
+
+      delTodoBtn.innerHTML = feather.icons.x.toSvg({
+        class: 'foo bar', 'stroke-width': 1, color: 'red', id: 'delTodoBtn',
+      });
       todo.append(todoText);
+      todo.append(delTodoBtn);
+
+      /* 임시 css */
+      todo.style.display = 'flex';
+      todo.style.alignItems = 'center';
+      todo.style.justifyContent = 'center';
+      /*  */
 
       todoList.append(todo);
     });
   };
-  const addTodo = (event:Event):void => {
+  const updateTodo = (event:Event):void => {
     event.preventDefault();
     const newTodo:string = todoInput.value;
     if (newTodo) {
@@ -59,7 +75,7 @@ export default function Todo(element: HTMLDivElement): void {
 
   todoInput.addEventListener('keypress', (e: KeyboardEvent):void => {
     if (e.key === 'Enter') {
-      addTodo(e);
+      updateTodo(e);
     }
   });
   window.addEventListener('load', ():void => {
@@ -69,5 +85,8 @@ export default function Todo(element: HTMLDivElement): void {
       parseTodos.forEach((e: Todos) => todos.push(e));
       paintTodo(todos);
     }
+  });
+  window.addEventListener('click', (e:MouseEvent):void => {
+    console.log(e.target);
   });
 }

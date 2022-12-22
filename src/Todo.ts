@@ -23,14 +23,18 @@ export default function Todo(element: HTMLDivElement): void {
   todoForm.append(todoInput);
   ele.append(todoForm);
 
-  const todos:Todos[] = [];
+  // eslint-disable-next-line prefer-const
+  let todos:Todos[] = [];
   const todoKey = 'todos';
 
-  const saveTodos = ():void => {
-    localStorage.setItem(todoKey, JSON.stringify(todos));
+  const saveTodos = (_todos:Todos[]):void => {
+    localStorage.setItem(todoKey, JSON.stringify(_todos));
   };
-  const deleteTodo = ():void => {
-    saveTodos();
+  const deleteTodo = (delTargetId: string):void => {
+    console.log(delTargetId);
+    // console.log(todos);
+    todos = todos.filter((e) => e.id !== Number(delTargetId));
+    saveTodos(todos);
   };
 
   const paintTodo = (_todos: Todos[]):void => {
@@ -40,10 +44,14 @@ export default function Todo(element: HTMLDivElement): void {
       const delTodoBtn = document.createElement('button');
 
       todoText.innerText = e.text;
-      delTodoBtn.id = 'delTodoBtn';
+      delTodoBtn.className = 'delTodoBtn';
+      delTodoBtn.id = String(e.id);
 
-      delTodoBtn.innerHTML = feather.icons.x.toSvg({
-        class: 'foo bar', 'stroke-width': 1, color: 'red', id: 'delTodoBtn',
+      delTodoBtn.innerHTML = feather.icons['x-circle'].toSvg({
+        class: 'delTodoBtn',
+        id: String(e.id),
+        'stroke-width': 1,
+        color: 'red',
       });
       todo.append(todoText);
       todo.append(delTodoBtn);
@@ -69,7 +77,7 @@ export default function Todo(element: HTMLDivElement): void {
       }];
       todos.push(objectTodo[0]);
       paintTodo(objectTodo);
-      saveTodos();
+      saveTodos(todos);
     }
   };
 
@@ -87,6 +95,13 @@ export default function Todo(element: HTMLDivElement): void {
     }
   });
   window.addEventListener('click', (e:MouseEvent):void => {
-    console.log(e.target);
+    if (e.target instanceof Element) {
+      console.log(e.target);
+      if (e.target.tagName === 'line') {
+        deleteTodo(e.target.parentElement!.id);
+      } else if (e.target.classList.contains('delTodoBtn')) {
+        deleteTodo(e.target.id);
+      }
+    }
   });
 }

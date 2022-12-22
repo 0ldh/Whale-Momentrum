@@ -12,6 +12,7 @@ export default function Todo(element: HTMLDivElement): void {
   const todoList = document.createElement('div');
   const todoInput = document.createElement('input');
 
+  feather.icons.x.toSvg({ class: 'foo bar', 'stroke-width': 1, color: 'red' });
   todoInput.type = 'Text';
   /*
     만들어진 HTML 요소에 속성 추가
@@ -25,7 +26,7 @@ export default function Todo(element: HTMLDivElement): void {
   const todos:Todos[] = [];
   const todoKey = 'todos';
 
-  const saveTodos = (_newTodo: string):void => {
+  const saveTodos = ():void => {
     localStorage.setItem(todoKey, JSON.stringify(todos));
   };
 
@@ -33,7 +34,6 @@ export default function Todo(element: HTMLDivElement): void {
     _todos.forEach((e) => {
       const todo = document.createElement('div');
       const todoText = document.createElement('div');
-
       todoText.innerText = e.text;
 
       todo.append(todoText);
@@ -52,21 +52,22 @@ export default function Todo(element: HTMLDivElement): void {
         bool: false,
       }];
       todos.push(objectTodo[0]);
-      saveTodos(newTodo);
       paintTodo(objectTodo);
+      saveTodos();
     }
   };
 
   todoInput.addEventListener('keypress', (e: KeyboardEvent):void => {
     if (e.key === 'Enter') {
-      console.log('first');
       addTodo(e);
     }
   });
   window.addEventListener('load', ():void => {
-    const savedTodos = localStorage.getItem(todoKey) as string;
-    const parseTodos = JSON.parse(savedTodos);
-    parseTodos.forEach((e: Todos) => todos.push(e));
-    paintTodo(todos);
+    const savedTodos = localStorage.getItem(todoKey);
+    if (savedTodos !== null) {
+      const parseTodos = JSON.parse(savedTodos!);
+      parseTodos.forEach((e: Todos) => todos.push(e));
+      paintTodo(todos);
+    }
   });
 }

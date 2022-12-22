@@ -3,8 +3,6 @@ import typescriptLogo from './typescript.svg';
 import setupCounter from './counter';
 import BackGround from './BackGround';
 import Slide from './Slide';
-import Page0 from './Page0';
-import Page1 from './Page1';
 
 document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
   <div id='wrapper'>
@@ -18,19 +16,14 @@ document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
     <div class="card">
       <button id="counter" type="button"></button>
     </div>
-    <div id='slide'>
-      <div id='page0'></div>
-      <div id='page1'></div>
-    </div>
+    <div id='slide'></div>
     <button type='button' id='slideBtn'></button>
   </div>
 `;
 
 setupCounter(document.querySelector<HTMLButtonElement>('#counter')!);
 BackGround(document.querySelector<HTMLDivElement>('#wrapper')!);
-Page0(document.querySelector('#page0')!);
 Slide(
   document.querySelector<HTMLDivElement>('#slide')!,
   document.querySelector<HTMLButtonElement>('#slideBtn')!,
 );
-Page1(document.querySelector<HTMLDivElement>('#page1')!);

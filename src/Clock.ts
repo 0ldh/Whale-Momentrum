@@ -10,6 +10,15 @@ export default function Clock(element: HTMLDivElement):void {
     const day = date.toLocaleDateString('ko-kr', { day: '2-digit' });
     const weekDay = date.toLocaleDateString('ko-KR', { weekday: 'short' });
 
+    const clock = document.createElement('div');
+    const clockForm = document.createElement('div');
+    const innerClock = document.createElement('span');
+    const dateForm = document.createElement('div');
+    const innerDate = document.createElement('span');
+
+    /* 임시 CSS */
+    clockForm.style.height = '100%';
+
     ele.innerHTML = `
     <div style='height:100%'><span class='clock'>${hours}:${minutes}:${seconds}</span></div>
     <div><span class='date'>${year}년 ${month} ${day} ${weekDay}요일</span></div>

@@ -5,7 +5,12 @@ export default function Clock(element: HTMLDivElement):void {
     const hours = String(date.getHours()).padStart(2, '0');
     const minutes = String(date.getMinutes()).padStart(2, '0');
     const seconds = String(date.getSeconds()).padStart(2, '0');
-    ele.innerText = `${hours}:${minutes}:${seconds}`;
+    const year = date.getFullYear();
+    const month = date.toLocaleDateString('ko-KR', { month: 'long' });
+    const day = date.toLocaleDateString('ko-kr', { day: '2-digit' });
+    const weekDay = date.toLocaleDateString('ko-KR', { weekday: 'short' });
+
+    ele.innerText = `${hours}:${minutes}:${seconds}\n${year}년 ${month} ${day} ${weekDay}요일`;
   };
   setInterval(getClock, 1000);
 }

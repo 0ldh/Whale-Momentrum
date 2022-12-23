@@ -5,8 +5,8 @@ export default function Slide(element: HTMLDivElement, slideBtn:HTMLButtonElemen
   const ele = element;
   const btn = slideBtn;
 
-  const page0 = document.createElement('div');
-  const page1 = document.createElement('div');
+  const page0 = document.createElement('li');
+  const page1 = document.createElement('li');
 
   ele.append(page0);
   ele.append(page1);

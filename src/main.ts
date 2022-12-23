@@ -1,29 +1,28 @@
 import './css/style.css';
 import typescriptLogo from './typescript.svg';
-import setupCounter from './counter';
 import BackGround from './BackGround';
 import Slide from './Slide';
 
 document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
   <div id='wrapper'>
-    <a href="https://vitejs.dev" target="_blank">
-      <img src="/vite.svg" class="logo" alt="Vite logo" />
-    </a>
-    <a href="https://www.typescriptlang.org/" target="_blank">
-      <img src="${typescriptLogo}" class="logo vanilla" alt="TypeScript logo" />
-    </a>
-    <h1>Vite + TypeScript</h1>
-    <div class="card">
-      <button id="counter" type="button"></button>
+    <div id='slide' class="card">
+      <ul>
+      </ul>
     </div>
-    <div id='slide'></div>
     <button type='button' id='slideBtn'></button>
+    <div class="vite_with_ts">
+      <a href="https://vitejs.dev" target="_blank">
+        <img src="/vite.svg" class="logo" alt="Vite logo" />
+      </a>
+      <a href="https://www.typescriptlang.org/" target="_blank">
+        <img src="${typescriptLogo}" class="logo vanilla" alt="TypeScript logo" />
+      </a>
+    </div>
   </div>
 `;
 
-setupCounter(document.querySelector<HTMLButtonElement>('#counter')!);
 BackGround(document.querySelector<HTMLDivElement>('#wrapper')!);
 Slide(
-  document.querySelector<HTMLDivElement>('#slide')!,
+  document.querySelector<HTMLDivElement>('#slide > ul')!,
   document.querySelector<HTMLButtonElement>('#slideBtn')!,
 );

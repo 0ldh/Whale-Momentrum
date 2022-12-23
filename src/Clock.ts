@@ -10,7 +10,10 @@ export default function Clock(element: HTMLDivElement):void {
     const day = date.toLocaleDateString('ko-kr', { day: '2-digit' });
     const weekDay = date.toLocaleDateString('ko-KR', { weekday: 'short' });
 
-    ele.innerText = `${hours}:${minutes}:${seconds}\n${year}년 ${month} ${day} ${weekDay}요일`;
+    ele.innerHTML = `
+    <div style='height:100%'><span class='clock'>${hours}:${minutes}:${seconds}</span></div>
+    <div><span class='date'>${year}년 ${month} ${day} ${weekDay}요일</span></div>
+    `;
   };
   setInterval(getClock, 1000);
 }

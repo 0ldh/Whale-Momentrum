@@ -6,13 +6,12 @@ interface Todos {
   bool: boolean;
 }
 
-export default function Todo(element: HTMLDivElement): void {
+export default function Todo(element: HTMLLIElement): void {
   const ele = element;
   const todoForm = document.createElement('div');
   const todoList = document.createElement('div');
   const todoInput = document.createElement('input');
 
-  feather.icons.x.toSvg({ class: 'foo bar', 'stroke-width': 1, color: 'red' });
   todoInput.type = 'Text';
   /*
     만들어진 HTML 요소에 속성 추가
@@ -58,9 +57,7 @@ export default function Todo(element: HTMLDivElement): void {
       todo.append(delTodoBtn);
 
       /* 임시 css */
-      todo.style.display = 'flex';
-      todo.style.alignItems = 'center';
-      todo.style.justifyContent = 'center';
+      todo.className = 'todo';
       /*  */
 
       todoList.append(todo);

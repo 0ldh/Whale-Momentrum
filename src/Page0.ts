@@ -6,6 +6,8 @@ export default function Page0(element: HTMLLIElement):void {
   const clock = document.createElement('div');
   const quote = document.createElement('div');
 
+  ele.className = 'page-0';
+
   clock.className = 'clock_date';
 
   ele.appendChild(clock);

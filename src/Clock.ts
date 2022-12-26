@@ -24,5 +24,6 @@ export default function Clock(element: HTMLDivElement):void {
     <div><span class='date'>${year}년 ${month} ${day} ${weekDay}요일</span></div>
     `;
   };
-  setInterval(getClock, 1000);
+  // setInterval(getClock, 1000);
+  getClock();
 }

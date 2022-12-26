@@ -6,10 +6,8 @@ import Slide from './Slide';
 document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
   <div id='wrapper'>
     <div id='slide' class="card">
-      <ul>
-      </ul>
     </div>
-    <button type='button' id='slideBtn'></button>
+    <div type='button' id='slideBtn'></div>
     <div class="vite_with_ts">
       <a href="https://vitejs.dev" target="_blank">
         <img src="/vite.svg" class="logo" alt="Vite logo" />
@@ -23,8 +21,8 @@ document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
 
 BackGround(document.querySelector<HTMLDivElement>('#wrapper')!);
 Slide(
-  document.querySelector<HTMLDivElement>('#slide > ul')!,
-  document.querySelector<HTMLButtonElement>('#slideBtn')!,
+  document.querySelector<HTMLDivElement>('#slide')!,
+  document.querySelector<HTMLDivElement>('#slideBtn')!,
 );
 
 /** 미작업 목록

@@ -6,7 +6,7 @@ interface Todos {
   bool: boolean;
 }
 
-export default function Todo(element: HTMLLIElement): void {
+export default function Todo(element: HTMLDivElement): void {
   const ele = element;
   const todoForm = document.createElement('div');
   const todoList = document.createElement('div');

@@ -42,6 +42,7 @@ h1 {
   margin: 0 auto;
   padding: 2rem;
   text-align: center;
+  overflow: hidden;
 }
 
 .logo {
@@ -105,7 +106,6 @@ ul {
   padding-inline-start: 0;
 }
 
-
 /* 여기서 부터 내가 작성 힌 css  */
 .bgimg {
   object-fit: cover;
@@ -126,26 +126,42 @@ ul {
   padding: 0 0.5em 0 0.5em;
 }
 
-.todo {
+#slide {
+  position: relative;
   display: flex;
-  align-items: center;
-  justify-content: space-between;
+  transition: 0.5s;
 }
 
+.page-0, .page-1 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  white-space: pre-line;
+  word-break: break-all;
+  width: 100%;
+  height: 100%;
+}
 .clock_date {
   display: flex;
   flex-direction: column;
 }
 
 span.clock {
-  font-size: 70px;
+  font-size: 7em;
   font-weight: 900;
 }
 span.date {
-  font-size: 20px;
+  font-size: 2em;
   font-weight: 500;
 }
 span.quote {
-  font-size: 30px;
+  font-size: 3em;
   font-weight: 700;
+}
+
+.todo {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }

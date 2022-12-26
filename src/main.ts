@@ -26,3 +26,10 @@ Slide(
   document.querySelector<HTMLDivElement>('#slide > ul')!,
   document.querySelector<HTMLButtonElement>('#slideBtn')!,
 );
+
+/** 미작업 목록
+ * * SubViewer
+ * * slide animation
+ * * Greeting
+ * * CSS
+ */

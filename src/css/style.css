@@ -98,6 +98,11 @@ button:focus-visible {
 
 ul {
   list-style-type: none;
+  margin-block-start: 0;
+  margin-block-end: 0;
+  margin-inline-start: 0;
+  margin-inline-end: 0;
+  padding-inline-start: 0;
 }
 
 
@@ -137,7 +142,6 @@ span.clock {
   font-weight: 900;
 }
 span.date {
-  position: relative;
   font-size: 20px;
   font-weight: 500;
 }

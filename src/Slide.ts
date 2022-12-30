@@ -12,20 +12,24 @@ export default function Slide(element: HTMLDivElement, div:HTMLDivElement):void 
 
   ele.append(page0);
   ele.append(page1);
+  page0Btn.className = 'button';
+  page1Btn.className = 'button';
   btnDiv.append(page0Btn, page1Btn);
 
   Page0(page0);
   Page1(page1);
 
-  /* 버튼 임시 CSS */
-  btnDiv.style.backgroundColor = 'transparent';
-  btnDiv.style.padding = '1em';
-  btnDiv.style.display = 'flex';
+  const fadePage = (event: MouseEvent) => {
+    const btn = event.target as HTMLSpanElement;
+    if (page0Btn === btn) {
+      page0.style.display = 'block';
+      page1.style.display = 'none';
+    } else {
+      page0.style.display = 'none';
+      page1.style.display = 'block';
+    }
+  };
 
-  page0Btn.addEventListener('click', (e:MouseEvent) => {
-    console.log(e.target);
-  });
-  page1Btn.addEventListener('click', (e: MouseEvent) => {
-    console.log(e.target);
-  });
+  page0Btn.addEventListener('click', fadePage);
+  page1Btn.addEventListener('click', fadePage);
 }

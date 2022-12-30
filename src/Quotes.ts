@@ -45,6 +45,8 @@ export default function Quote(element: HTMLDivElement): void {
 
   quote.innerText = todayQuote.quote;
   author.innerText = todayQuote.author;
+
+  ele.className = 'quotes';
   ele.append(quote);
   ele.append(author);
 }

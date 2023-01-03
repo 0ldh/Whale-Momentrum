@@ -10,16 +10,23 @@ export default function Todo(element: HTMLDivElement): void {
   const ele = element;
   const todoForm = document.createElement('div');
   const todoList = document.createElement('div');
+  const todoInputForm = document.createElement('div');
   const todoInput = document.createElement('input');
+  const todoInputLabel = document.createElement('label');
 
-  todoInput.type = 'Text';
-  /*
-    만들어진 HTML 요소에 속성 추가
+  todoInput.type = 'text';
+  todoForm.className = 'todo__form';
+  todoList.className = 'todo__list';
 
-  */
+  todoInputForm.className = 'todoInput_form';
+  todoInput.className = 'todoInput_input';
+  todoInputLabel.className = 'todoInput_label';
+
+  todoInputLabel.innerText = 'Todo';
 
   todoForm.append(todoList);
-  todoForm.append(todoInput);
+  todoInputForm.append(todoInput, todoInputLabel);
+  todoForm.append(todoInputForm);
   ele.append(todoForm);
 
   // eslint-disable-next-line prefer-const

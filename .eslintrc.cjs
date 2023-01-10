@@ -46,6 +46,7 @@ module.exports = {
     indent: 'off',
     '@typescript-eslint/indent': ['error', 2],
     'no-plusplus': 0,
+    'no-param-reassign': 0,
   },
   settings: {
     'import/resolver': {

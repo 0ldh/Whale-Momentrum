@@ -39,14 +39,8 @@ const quotes:Quotes[] = [ // 명언집 ( type : Object)
 
 export default function Quote(element: HTMLDivElement): void {
   const ele = element;
-  const quote = document.createElement('span');
-  const author = document.createElement('span');
   const todayQuote = quotes[Math.floor(Math.random() * quotes.length)];
 
-  quote.innerText = todayQuote.quote;
-  author.innerText = todayQuote.author;
-
   ele.className = 'quotes';
-  ele.append(quote);
-  ele.append(author);
+  ele.innerHTML = `<span>${todayQuote.quote}</span><span>${todayQuote.author}</span>`;
 }

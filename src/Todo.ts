@@ -9,19 +9,20 @@ interface Todos {
 export default function Todo(element: HTMLDivElement): void {
   const ele = element;
   const todoForm = document.createElement('div');
-  const todoList = document.createElement('div');
-  const todoInputForm = document.createElement('div');
-  const todoInput = document.createElement('input');
-  const todoInputLabel = document.createElement('label');
-
-  todoInput.type = 'text';
   todoForm.className = 'todo__form';
+
+  const todoList = document.createElement('div');
   todoList.className = 'todo__list';
 
+  const todoInputForm = document.createElement('div');
   todoInputForm.className = 'todoInput_form';
-  todoInput.className = 'todoInput_input';
-  todoInputLabel.className = 'todoInput_label';
 
+  const todoInput = document.createElement('input');
+  todoInput.type = 'text';
+  todoInput.className = 'todoInput_input';
+
+  const todoInputLabel = document.createElement('label');
+  todoInputLabel.className = 'todoInput_label';
   todoInputLabel.innerText = 'Todo';
 
   todoForm.append(todoList);
@@ -37,10 +38,9 @@ export default function Todo(element: HTMLDivElement): void {
     localStorage.setItem(todoKey, JSON.stringify(_todos));
   };
   const deleteTodo = (delTargetId: string, delTargetEle: HTMLElement):void => {
-    delTargetEle.remove();
-    // console.log(todos);
     todos = todos.filter((e) => e.id !== Number(delTargetId));
     saveTodos(todos);
+    delTargetEle.remove();
   };
 
   const paintTodo = (_todos: Todos[]):void => {
@@ -51,21 +51,18 @@ export default function Todo(element: HTMLDivElement): void {
 
       todo.id = String(e.id);
       todoText.innerText = e.text;
-      delTodoBtn.className = 'delTodoBtn';
-      delTodoBtn.id = String(e.id);
 
       delTodoBtn.innerHTML = feather.icons['x-circle'].toSvg({
-        class: 'delTodoBtn',
-        id: String(e.id),
         'stroke-width': 1,
         color: 'red',
       });
+
+      todo.className = 'todo';
+      delTodoBtn.className = 'delTodoBtn';
+      delTodoBtn.id = String(e.id);
+
       todo.append(todoText);
       todo.append(delTodoBtn);
-
-      /* 임시 css */
-      todo.className = 'todo';
-      /*  */
 
       todoList.append(todo);
     });
@@ -91,27 +88,23 @@ export default function Todo(element: HTMLDivElement): void {
       updateTodo(e);
     }
   });
-  window.addEventListener('load', ():void => {
+  window.addEventListener('load', (): void => {
     const savedTodos = localStorage.getItem(todoKey);
-    if (savedTodos !== null) {
-      const parseTodos = JSON.parse(savedTodos!);
-      parseTodos.forEach((e: Todos) => todos.push(e));
+    if (savedTodos) {
+      const parseTodos = JSON.parse(savedTodos);
+      todos.push(...parseTodos);
       paintTodo(todos);
     }
   });
+
   window.addEventListener('click', (e:MouseEvent):void => {
     const { target } = e;
     if (target instanceof Element) {
-      if (target.tagName === 'line') {
-        deleteTodo(
-          target.parentElement!.id,
-          document.getElementById(target.parentElement!.id)!,
-        );
+      const { parentElement } = target;
+      if (target.tagName === 'line' && parentElement) {
+        deleteTodo(parentElement.id, document.getElementById(parentElement.id)!);
       } else if (target.classList.contains('delTodoBtn')) {
-        deleteTodo(
-          target.id,
-          document.getElementById(target.id)!,
-        );
+        deleteTodo(target.id, document.getElementById(target.id)!);
       }
     }
   });

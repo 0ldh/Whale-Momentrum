@@ -31,18 +31,18 @@ const images: Images = {
 export default function BackGround(wrapper :HTMLDivElement):void {
   const date = new Date();
   const nowHours = date.getHours();
-  const img = document.createElement('img');
 
   const selectImg = (time: number):string => {
-    const pod:number = time;
-    if (pod >= 6 && pod < 12) return images.morning[Math.floor(Math.random() * 3)];
-    if (pod >= 12 && pod < 15) return images.noon[Math.floor(Math.random() * 3)];
-    if (pod >= 15 && pod < 20) return images.afternoon[Math.floor(Math.random() * 3)];
+    if (time >= 6 && time < 12) return images.morning[Math.floor(Math.random() * 3)];
+    if (time >= 12 && time < 15) return images.noon[Math.floor(Math.random() * 3)];
+    if (time >= 15 && time < 20) return images.afternoon[Math.floor(Math.random() * 3)];
     return images.evening[Math.floor(Math.random() * 3)];
   };
 
+  const img = document.createElement('img');
   img.src = `../img/${selectImg(nowHours)}`;
   img.className = 'bgimg';
+
   wrapper.appendChild(img);
 
   console.log('import BackGround');
